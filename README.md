@@ -15,7 +15,9 @@ card creation, balance inquiry, bank transfer, ...) that can be done within the 
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
 
 2. Implementation
-To implement in the Java language an application based on those defined in the first point.
+
+Implement in the Java language an application based on those defined in the first point.
+
 The application will contain:
 - [ ] simple classes with private / protected attributes and access methods
 - [ ] at least 2 different collections capable of managing previously defined objects (eg: List, Set, Map, etc.) between
