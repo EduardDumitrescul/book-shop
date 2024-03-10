@@ -13,6 +13,14 @@ It is an app that :
 card creation, balance inquiry, bank transfer, ...) that can be done within the system
 - [ ] create a list of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
+    - Shop
+    - User
+    - Inventory
+    - Item
+    - Book
+    - DrawingBook
+    - Notebook
+    - CookBook
 
 2. Implementation
 
