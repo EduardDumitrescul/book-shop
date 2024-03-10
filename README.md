@@ -39,9 +39,7 @@ Implement in the Java language an application based on those defined in the firs
 
 The application will contain:
 - [ ] simple classes with private / protected attributes and access methods
-- [ ] at least 2 different collections capable of managing previously defined objects (eg: List, Set, Map, etc.) between
-at least one of which should be sorted – one-/two-dimensional arrays will be used if they are not traversed
-the collections until the checkpoint date
+- [ ] at least 2 different collections capable of managing previously defined objects (eg: List, Set, Map, etc.), least one of which should be sorted
 - [ ] use inheritance to create additional classes and use them within collections;
 - [ ] at least one service class to expose system operations
 - [ ] a Main class from which calls to services are made
