@@ -9,10 +9,10 @@ It is an app that :
 
 ### Stage I(deadline: 8th of April 2024)
 1. System definition
-Create a list based on the chosen theme with at least 10 actions/queries (Example actions: update data
-personal, card creation, balance inquiry, bank transfer, ...) that can be done within the system and a list of the
+Create a list based on the chosen theme with at least 10 actions/queries (Example actions: update personal data,
+card creation, balance inquiry, bank transfer, ...) that can be done within the system and a list of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
-2. Implementation
+3. Implementation
 To implement in the Java language an application based on those defined in the first point.
 The application will contain:
 - [ ] simple classes with private / protected attributes and access methods
