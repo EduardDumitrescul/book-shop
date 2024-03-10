@@ -14,8 +14,9 @@ card creation, balance inquiry, bank transfer, ...) that can be done within the 
 - [ ] create a list of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
     - Shop
+    - ShopInventory
     - User
-    - Inventory
+    - UserInventory
     - Item
     - Book
     - DrawingBook
