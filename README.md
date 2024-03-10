@@ -11,7 +11,7 @@ It is an app that :
 1. System definition
 - [ ] create a list based on the chosen theme with at least 10 actions/queries (Example actions: update personal data,
 card creation, balance inquiry, bank transfer, ...) that can be done within the system
-- [ ] create a list of the
+- [ ] create a list ([models documentation](documentation/models.md)) of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
     - Shop
     - ShopInventory
