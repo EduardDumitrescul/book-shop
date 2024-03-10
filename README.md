@@ -9,8 +9,18 @@ It is an app that :
 
 ### Stage I(deadline: 8th of April 2024)
 1. System definition
-- [ ] create a list based on the chosen theme with at least 10 actions/queries (Example actions: update personal data,
+- [x] create a list based on the chosen theme with at least 10 actions/queries (Example actions: update personal data,
 card creation, balance inquiry, bank transfer, ...) that can be done within the system
+   - [ ] register new user
+   - [ ] login existing user
+   - [ ] view shop inventory
+   - [ ] restock shop's inventory
+   - [ ] buy item from shop
+   - [ ] view item details
+   - [ ] view user inventory
+   - [ ] use owned item
+   - [ ] throw away item
+   - [ ] view shop statistics
 - [x] create a list ([models documentation](documentation/models.md)) of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
     - Shop
