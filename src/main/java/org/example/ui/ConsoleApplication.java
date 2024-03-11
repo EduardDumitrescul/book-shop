@@ -11,15 +11,10 @@ public class ConsoleApplication {
     private ConsoleApplication() {}
 
     public static void show() {
-        isRunning = true;
-        while(isRunning) {
-            if(accountService.isLoggedIn()) {
-                writeLine("You are logged in");
-                isRunning = false;
-            }
-            else {
-                LoginScreen.show();
-            }
+        if (accountService.isLoggedIn()) {
+            writeLine("You are logged in");
+        } else {
+            LoginScreen.show();
         }
     }
 }
