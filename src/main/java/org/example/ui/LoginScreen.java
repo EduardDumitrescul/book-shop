@@ -5,6 +5,7 @@ import org.example.services.AccountService;
 import static org.example.ui.ConsoleReader.readLine;
 import static org.example.ui.ConsoleWriter.write;
 import static org.example.ui.ConsoleWriter.writeLine;
+import static org.example.ui.ScreenTitle.showTitle;
 
 public class LoginScreen {
     static boolean running = false;
@@ -13,6 +14,8 @@ public class LoginScreen {
     public static void show() {
         running = true;
         while(running) {
+            showTitle("Login");
+
             writeLine("Please login into your account.");
             String command = readLine();
             switch (command) {
