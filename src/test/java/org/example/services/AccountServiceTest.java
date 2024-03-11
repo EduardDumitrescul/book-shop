@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountServiceTest {
     private IUserRepository userRepository = UserRepository.getInstance();
     private AccountService accountService = AccountService.getInstance();
+
+    private String mockUsername = "account service test username";
+    private String mockPassword = "account service test password";
+
     @Test
     void isUnique() {
         User user = new User("John", "Pass");
@@ -26,5 +30,11 @@ class AccountServiceTest {
         assertDoesNotThrow(() -> accountService.register(username, password));
         assertThrows(Exception.class, () -> accountService.register(username, password));
 
+    }
+
+    @Test
+    void userLoggedAfterRegister() {
+        assertDoesNotThrow(() -> accountService.register(mockUsername, mockPassword));
+        assertTrue(accountService.isLoggedIn());
     }
 }

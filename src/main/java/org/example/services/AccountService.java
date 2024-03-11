@@ -6,16 +6,18 @@ import org.example.data.repositories.UserRepository;
 
 public class AccountService {
     private IUserRepository userRepository = UserRepository.getInstance();
+
+    private User currentUser = null;
     private AccountService() {}
     public boolean isUnique(String username) {
         return !userRepository.usernameExists(username);
     }
 
     public void register(String username, String password) throws Exception {
-
         if(isUnique(username)) {
             User user = new User(username, password);
             userRepository.insert(user);
+            currentUser = user;
         }
         else {
             throw new Exception("Username is already in use");
@@ -29,5 +31,9 @@ public class AccountService {
             instance = new AccountService();
         }
         return instance;
+    }
+
+    public boolean isLoggedIn() {
+        return currentUser != null;
     }
 }
