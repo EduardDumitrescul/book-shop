@@ -5,8 +5,7 @@ import org.example.data.repositories.IUserRepository;
 import org.example.data.repositories.UserRepository;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class AccountServiceTest {
     private IUserRepository userRepository = UserRepository.getInstance();
@@ -18,5 +17,14 @@ class AccountServiceTest {
         assertTrue(accountService.isUnique(user.getUsername()));
         userRepository.insert(user);
         assertFalse(accountService.isUnique(user.getUsername()));
+    }
+
+    @Test
+    void register(){
+        String username = "register";
+        String password = "pass";
+        assertDoesNotThrow(() -> accountService.register(username, password));
+        assertThrows(Exception.class, () -> accountService.register(username, password));
+
     }
 }
