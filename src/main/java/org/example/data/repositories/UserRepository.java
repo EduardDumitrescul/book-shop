@@ -4,6 +4,7 @@ import org.example.data.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserRepository implements IUserRepository {
     private static UserRepository instance = null;
@@ -18,7 +19,7 @@ public class UserRepository implements IUserRepository {
     @Override
     public boolean usernameExists(String username) {
         for(User user: users) {
-            if(user.getUsername() == username) {
+            if(Objects.equals(user.getUsername(), username)) {
                 return true;
             }
         }
