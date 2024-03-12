@@ -32,6 +32,16 @@ public class UserRepository implements IUserRepository {
         users.add(user);
     }
 
+    @Override
+    public User findUserByUsername(String username) {
+        for(User user: users) {
+            if(Objects.equals(user.getUsername(), username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public void generateId(User user) {
         idCount ++;
         user.setId(idCount);

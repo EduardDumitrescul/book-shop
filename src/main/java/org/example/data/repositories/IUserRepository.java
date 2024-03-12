@@ -7,4 +7,6 @@ public interface IUserRepository {
 
     void insert(User user);
 
+    User findUserByUsername(String username);
+
 }

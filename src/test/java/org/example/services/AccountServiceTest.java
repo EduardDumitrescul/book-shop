@@ -33,6 +33,15 @@ class AccountServiceTest {
     }
 
     @Test
+    void login() {
+        User user = new User("login", "login");
+        assertThrows(Exception.class, () -> accountService.login(user.getUsername(), user.getPassword()));
+        userRepository.insert(user);
+        assertDoesNotThrow(() -> accountService.login(user.getUsername(), user.getPassword()));
+        assertTrue(accountService.isLoggedIn());
+    }
+
+    @Test
     void userLoggedAfterRegister() {
         assertDoesNotThrow(() -> accountService.register(mockUsername, mockPassword));
         assertTrue(accountService.isLoggedIn());

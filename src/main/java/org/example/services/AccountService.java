@@ -13,6 +13,8 @@ public class AccountService {
         return !userRepository.usernameExists(username);
     }
 
+    public boolean usernameExists(String username) {return userRepository.usernameExists(username); }
+
     public void register(String username, String password) throws Exception {
         if(isUnique(username)) {
             User user = new User(username, password);
@@ -22,6 +24,21 @@ public class AccountService {
         else {
             throw new Exception("Username is already in use");
         }
+    }
+
+    public boolean passwordIsCorrect(String username, String password) {
+        User user = userRepository.findUserByUsername(username);
+        return user.getPassword().equals(password);
+    }
+
+    public void login(String username, String password) throws Exception {
+        if(!usernameExists(username)) {
+            throw new Exception("Username does not exist!");
+        }
+        if(!passwordIsCorrect(username, password)) {
+            throw new Exception("Password is incorrect!");
+        }
+        currentUser = userRepository.findUserByUsername(username);
     }
 
 
