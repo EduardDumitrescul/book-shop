@@ -8,6 +8,10 @@ import java.util.List;
 public class ItemInventoryCrossRefRepository {
     private List<ItemInventoryCrossRef> crossRefs = new ArrayList<>();
 
+    public void add(ItemInventoryCrossRef itemInventoryCrossRef) {
+        crossRefs.add(new ItemInventoryCrossRef(itemInventoryCrossRef));
+    }
+
     private ItemInventoryCrossRefRepository() {}
     private static ItemInventoryCrossRefRepository instance;
 

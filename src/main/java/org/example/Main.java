@@ -5,7 +5,7 @@ import org.example.ui.ConsoleApplication;
 
 public class Main {
     public static void main(String[] args) {
-        Seeder.seedItems();
+        Seeder.seed();
 
 
         ConsoleApplication.show();

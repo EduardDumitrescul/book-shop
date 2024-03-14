@@ -42,9 +42,20 @@ public class Seeder {
             new ItemInventoryCrossRef(1, 5)
     ));
 
+    public static void seed() {
+        seedItems();
+        seedItemInventoryCrossRef();
+    }
+
     public static void seedItems() {
         for(ItemEntity entity: items) {
             itemRepository.addItem(new ItemEntity(entity));
+        }
+    }
+
+    public static void seedItemInventoryCrossRef() {
+        for(ItemInventoryCrossRef crossRef: itemInventoryCrossRefs) {
+            itemInventoryCrossRefRepository.add(crossRef);
         }
     }
 
