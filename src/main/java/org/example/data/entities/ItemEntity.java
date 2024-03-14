@@ -1,6 +1,7 @@
 package org.example.data.entities;
 
 import org.example.data.Cloneable;
+import org.example.data.models.Item;
 
 public class ItemEntity implements Cloneable {
     int id;
@@ -22,5 +23,17 @@ public class ItemEntity implements Cloneable {
     @Override
     public ItemEntity clone() {
         return new ItemEntity(this);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public Item asItem() {
+        return new Item(this.id, this.price);
     }
 }

@@ -8,6 +8,24 @@ import java.util.List;
 public class ItemRepository {
     private List<ItemEntity> items = new ArrayList<>();
 
+    public List<ItemEntity> getById(List<Integer> ids) {
+        List<ItemEntity> list = new ArrayList<>();
+        for(ItemEntity entity: items) {
+            if(ids.contains(entity.getId())) {
+                list.add(new ItemEntity(entity));
+            }
+        }
+        return list;
+    }
+
+    public ItemEntity getById(int id) {
+        for(ItemEntity entity: items) {
+            if(entity.getId() == id) {
+                return entity;
+            }
+        }
+        return null;
+    }
 
     public void addItem(ItemEntity entity) {
         items.add(new ItemEntity(entity));

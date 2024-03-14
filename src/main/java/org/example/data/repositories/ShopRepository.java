@@ -8,6 +8,18 @@ import java.util.List;
 public class ShopRepository {
     private List<ShopEntity> shops = new ArrayList<>();
 
+
+    public ShopEntity getById(int id) {
+        for(ShopEntity entity: shops) {
+            if(entity.getId() == id) {
+                return new ShopEntity(entity);
+            }
+        }
+        return null;
+    }
+
+
+
     private ShopRepository() {}
 
     private static ShopRepository instance;

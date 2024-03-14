@@ -23,4 +23,12 @@ public class ItemInventoryCrossRef implements Cloneable {
     public ItemInventoryCrossRef clone() {
         return new ItemInventoryCrossRef(this);
     }
+
+    public int getInventoryId() {
+        return inventoryId;
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
 }

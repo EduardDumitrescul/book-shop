@@ -44,4 +44,12 @@ public class ShopEntity implements Cloneable {
     public ShopEntity clone() {
         return new ShopEntity(this);
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getInventoryId() {
+        return inventoryId;
+    }
 }

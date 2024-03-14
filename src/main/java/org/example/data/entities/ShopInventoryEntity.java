@@ -11,6 +11,7 @@ public class ShopInventoryEntity implements Cloneable {
         this.id = id;
     }
 
+
     public ShopInventoryEntity(ShopInventoryEntity obj) {
         this.id = obj.id;
     }
@@ -18,5 +19,9 @@ public class ShopInventoryEntity implements Cloneable {
     @Override
     public ShopInventoryEntity clone() {
         return new ShopInventoryEntity(this);
+    }
+
+    public int getId() {
+        return id;
     }
 }
