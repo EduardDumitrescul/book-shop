@@ -9,6 +9,10 @@ public class ItemRepository {
     private List<ItemEntity> items = new ArrayList<>();
 
 
+    public void addItem(ItemEntity entity) {
+        items.add(new ItemEntity(entity));
+    }
+
     private static ItemRepository instance = null;
 
     private ItemRepository() {}
