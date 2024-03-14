@@ -1,11 +1,12 @@
 package org.example.services;
 
+import org.example.data.entities.UserEntity;
+import org.example.data.mappers.UserMapper;
 import org.example.data.models.User;
-import org.example.data.repositories.IUserRepository;
 import org.example.data.repositories.UserRepository;
 
 public class AccountService {
-    private IUserRepository userRepository = UserRepository.getInstance();
+    private UserRepository userRepository = UserRepository.getInstance();
 
     private User currentUser = null;
     private AccountService() {}
@@ -17,8 +18,8 @@ public class AccountService {
 
     public void register(String username, String password) throws Exception {
         if(isUnique(username)) {
-            User user = new User(username, password);
-            userRepository.insert(user);
+            User user = new User(0, username, password);
+            userRepository.add(UserMapper.asEntity(user));
             currentUser = user;
         }
         else {
@@ -27,7 +28,8 @@ public class AccountService {
     }
 
     public boolean passwordIsCorrect(String username, String password) {
-        User user = userRepository.findUserByUsername(username);
+        UserEntity entity = userRepository.findUserByUsername(username);
+        User user = UserMapper.asUser(entity);
         return user.getPassword().equals(password);
     }
 
@@ -38,7 +40,8 @@ public class AccountService {
         if(!passwordIsCorrect(username, password)) {
             throw new Exception("Password is incorrect!");
         }
-        currentUser = userRepository.findUserByUsername(username);
+        UserEntity entity  = userRepository.findUserByUsername(username);
+        currentUser = UserMapper.asUser(entity);
     }
 
 
