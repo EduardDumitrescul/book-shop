@@ -27,4 +27,14 @@ public class ShopEntity {
         this.dollarsReceived = dollarsReceived;
         this.inventoryId = inventoryId;
     }
+
+    public ShopEntity(ShopEntity obj) {
+        this.id = obj.id;
+        this.openingHour = obj.openingHour;
+        this.closingHour = obj.closingHour;
+        this.location = obj.location;
+        this.itemsSold = obj.itemsSold;
+        this.dollarsReceived = obj.dollarsReceived;
+        this.inventoryId = obj.inventoryId;
+    }
 }

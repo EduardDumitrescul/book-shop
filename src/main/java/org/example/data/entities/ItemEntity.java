@@ -11,4 +11,9 @@ public class ItemEntity {
         this.id  = id;
         this.price = price;
     }
+
+    public ItemEntity(ItemEntity obj) {
+        this.id = obj.id;
+        this.price = obj.price;
+    }
 }

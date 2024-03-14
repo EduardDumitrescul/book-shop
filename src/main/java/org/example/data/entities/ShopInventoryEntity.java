@@ -8,4 +8,8 @@ public class ShopInventoryEntity {
     ) {
         this.id = id;
     }
+
+    public ShopInventoryEntity(ShopInventoryEntity obj) {
+        this.id = obj.id;
+    }
 }
