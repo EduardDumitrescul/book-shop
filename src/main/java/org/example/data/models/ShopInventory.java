@@ -1,9 +1,11 @@
 package org.example.data.models;
 
+import org.example.data.Cloneable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopInventory {
+public class ShopInventory implements Cloneable {
     private int id;
     private List<Item> items;
 
@@ -31,5 +33,10 @@ public class ShopInventory {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    @Override
+    public ShopInventory clone() {
+        return new ShopInventory(this);
     }
 }

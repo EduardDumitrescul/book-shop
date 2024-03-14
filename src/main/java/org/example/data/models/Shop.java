@@ -1,6 +1,8 @@
 package org.example.data.models;
 
-public class Shop {
+import org.example.data.Cloneable;
+
+public class Shop implements Cloneable {
     private int id;
     private int openingHour;
     private int closingHour;
@@ -64,5 +66,10 @@ public class Shop {
 
     public String getLocation() {
         return location;
+    }
+
+    @Override
+    public Shop clone() {
+        return new Shop(this);
     }
 }

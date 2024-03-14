@@ -1,6 +1,8 @@
 package org.example.data.models;
 
-public class Item {
+import org.example.data.Cloneable;
+
+public class Item implements Cloneable {
     private int id;
     private int price;
 
@@ -20,5 +22,10 @@ public class Item {
 
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public Item clone() {
+        return new Item(this);
     }
 }

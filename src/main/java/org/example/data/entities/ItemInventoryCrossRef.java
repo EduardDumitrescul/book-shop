@@ -1,6 +1,8 @@
 package org.example.data.entities;
 
-public class ItemInventoryCrossRef {
+import org.example.data.Cloneable;
+
+public class ItemInventoryCrossRef implements Cloneable {
     int itemId;
     int inventoryId;
 
@@ -15,5 +17,10 @@ public class ItemInventoryCrossRef {
     public ItemInventoryCrossRef(ItemInventoryCrossRef obj) {
         this.itemId = obj.itemId;
         this.inventoryId = obj.inventoryId;
+    }
+
+    @Override
+    public ItemInventoryCrossRef clone() {
+        return new ItemInventoryCrossRef(this);
     }
 }

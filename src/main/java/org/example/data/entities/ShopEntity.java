@@ -1,6 +1,8 @@
 package org.example.data.entities;
 
-public class ShopEntity {
+import org.example.data.Cloneable;
+
+public class ShopEntity implements Cloneable {
     int id;
     int openingHour;
     int closingHour;
@@ -36,5 +38,10 @@ public class ShopEntity {
         this.itemsSold = obj.itemsSold;
         this.dollarsReceived = obj.dollarsReceived;
         this.inventoryId = obj.inventoryId;
+    }
+
+    @Override
+    public ShopEntity clone() {
+        return new ShopEntity(this);
     }
 }
