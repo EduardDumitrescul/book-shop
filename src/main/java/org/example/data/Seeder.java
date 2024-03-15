@@ -10,6 +10,7 @@ public class Seeder {
     private static ItemRepository itemRepository = ItemRepository.getInstance();
     private static BookRepository bookRepository = BookRepository.getInstance();
     private static ColoringBookRepository coloringBookRepository = ColoringBookRepository.getInstance();
+    private static NotebookRepository notebookRepository = NotebookRepository.getInstance();
     private static ShopRepository shopRepository = ShopRepository.getInstance();
     private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -30,8 +31,11 @@ public class Seeder {
     private static List<BookEntity> books = new ArrayList<>(List.of(
             new BookEntity(1, "title 1", "author 1", 100, 0)
     ));
-    private static List<ColoringBook> drawingBooks = new ArrayList<>(List.of(
-            new ColoringBook(2, "title 1", 100, 0)
+    private static List<ColoringBookEntity> drawingBooks = new ArrayList<>(List.of(
+            new ColoringBookEntity(2, "title 1", 100, 0)
+    ));
+    private static List<NotebookEntity> notebooks = new ArrayList<>(List.of(
+            new NotebookEntity(3, "lined", 100, 0)
     ));
 
     private final static List<ShopEntity> shops = new ArrayList<>(List.of(
@@ -57,6 +61,7 @@ public class Seeder {
         seedItems();
         seedBooks();
         seedDrawingBooks();
+        seedNotebooks();
         seedItemInventoryCrossRef();
         seedShops();
         seedInventories();
@@ -81,8 +86,13 @@ public class Seeder {
     }
 
     public static void seedDrawingBooks() {
-        for(ColoringBook entity: drawingBooks) {
-            coloringBookRepository.add(new ColoringBook(entity));
+        for(ColoringBookEntity entity: drawingBooks) {
+            coloringBookRepository.add(new ColoringBookEntity(entity));
+        }
+    }
+    public static void seedNotebooks() {
+        for(NotebookEntity entity: notebooks) {
+            notebookRepository.add(new NotebookEntity(entity));
         }
     }
 

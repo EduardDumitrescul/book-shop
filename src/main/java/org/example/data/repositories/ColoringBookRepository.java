@@ -1,8 +1,8 @@
 package org.example.data.repositories;
 
-import org.example.data.entities.ColoringBook;
+import org.example.data.entities.ColoringBookEntity;
 
-public class ColoringBookRepository extends Repository<ColoringBook> {
+public class ColoringBookRepository extends Repository<ColoringBookEntity> {
 
     private ColoringBookRepository() {
         super();
