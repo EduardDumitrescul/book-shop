@@ -15,7 +15,7 @@ import org.example.data.repositories.UserRepository;
 
 import java.util.List;
 
-public class AccountService {
+public class UserService {
     private UserRepository userRepository = UserRepository.getInstance();
     private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -23,7 +23,7 @@ public class AccountService {
     private ItemRepository itemRepository = ItemRepository.getInstance();
 
     private User currentUser = null;
-    private AccountService() {}
+    private UserService() {}
     public boolean isUnique(String username) {
         return !userRepository.usernameExists(username);
     }
@@ -87,10 +87,10 @@ public class AccountService {
     }
 
 
-    private static AccountService instance = null;
-    public static AccountService getInstance() {
+    private static UserService instance = null;
+    public static UserService getInstance() {
         if(instance == null) {
-            instance = new AccountService();
+            instance = new UserService();
         }
         return instance;
     }

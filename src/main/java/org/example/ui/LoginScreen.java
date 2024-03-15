@@ -1,6 +1,6 @@
 package org.example.ui;
 
-import org.example.services.AccountService;
+import org.example.services.UserService;
 
 import static org.example.ui.ConsoleReader.readLine;
 import static org.example.ui.ConsoleWriter.write;
@@ -9,7 +9,7 @@ import static org.example.ui.ScreenTitle.showTitle;
 
 public class LoginScreen {
     static boolean running = false;
-    static AccountService accountService = AccountService.getInstance();
+    static UserService userService = UserService.getInstance();
 
     public static void show() {
         running = true;
@@ -39,7 +39,7 @@ public class LoginScreen {
         String username = requireUsername();
         String password = requirePassword();
         try {
-            accountService.register(username, password);
+            userService.register(username, password);
             running = false;
         } catch (Exception e) {
             writeLine(e.getMessage());
