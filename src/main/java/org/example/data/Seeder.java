@@ -1,9 +1,9 @@
 package org.example.data;
 
+import org.example.data.entities.InventoryEntity;
+import org.example.data.entities.InventoryItemCrossRef;
 import org.example.data.entities.ItemEntity;
-import org.example.data.entities.ItemInventoryCrossRef;
 import org.example.data.entities.ShopEntity;
-import org.example.data.entities.ShopInventoryEntity;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
 import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.ShopInventoryRepository;
@@ -30,16 +30,16 @@ public class Seeder {
             new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1)
     ));
 
-    private static List<ShopInventoryEntity> shopInventories = new ArrayList<>(List.of(
-            new ShopInventoryEntity(1)
+    private static List<InventoryEntity> shopInventories = new ArrayList<>(List.of(
+            new InventoryEntity(1)
     ));
 
-    private static List<ItemInventoryCrossRef> itemInventoryCrossRefs = new ArrayList<>(List.of(
-            new ItemInventoryCrossRef(1, 1, 2),
-            new ItemInventoryCrossRef(1, 2, 3),
-            new ItemInventoryCrossRef(1, 3, 4),
-            new ItemInventoryCrossRef(1, 4, 5),
-            new ItemInventoryCrossRef(1, 5, 6)
+    private static List<InventoryItemCrossRef> inventoryItemCrossRefs = new ArrayList<>(List.of(
+            new InventoryItemCrossRef(1, 1, 2),
+            new InventoryItemCrossRef(1, 2, 3),
+            new InventoryItemCrossRef(1, 3, 4),
+            new InventoryItemCrossRef(1, 4, 5),
+            new InventoryItemCrossRef(1, 5, 6)
     ));
 
     public static void seed() {
@@ -55,7 +55,7 @@ public class Seeder {
     }
 
     public static void seedItemInventoryCrossRef() {
-        for(ItemInventoryCrossRef crossRef: itemInventoryCrossRefs) {
+        for(InventoryItemCrossRef crossRef: inventoryItemCrossRefs) {
             itemInventoryCrossRefRepository.add(crossRef);
         }
     }

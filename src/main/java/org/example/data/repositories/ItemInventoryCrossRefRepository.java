@@ -1,30 +1,30 @@
 package org.example.data.repositories;
 
-import org.example.data.entities.ItemInventoryCrossRef;
+import org.example.data.entities.InventoryItemCrossRef;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemInventoryCrossRefRepository {
-    private List<ItemInventoryCrossRef> crossRefs = new ArrayList<>();
+    private List<InventoryItemCrossRef> crossRefs = new ArrayList<>();
 
-    public ItemInventoryCrossRef getInventoryItem(int inventoryId, int itemId) {
-        for(ItemInventoryCrossRef entity: crossRefs) {
-            if(entity.equals(new ItemInventoryCrossRef(inventoryId, itemId, 0))) {
+    public InventoryItemCrossRef getInventoryItem(int inventoryId, int itemId) {
+        for(InventoryItemCrossRef entity: crossRefs) {
+            if(entity.equals(new InventoryItemCrossRef(inventoryId, itemId, 0))) {
                 return entity.clone();
             }
         }
         return null;
     }
 
-    public void update(ItemInventoryCrossRef itemInventoryCrossRef) {
-        int index = crossRefs.indexOf(itemInventoryCrossRef);
-        crossRefs.set(index, new ItemInventoryCrossRef(itemInventoryCrossRef));
+    public void update(InventoryItemCrossRef inventoryItemCrossRef) {
+        int index = crossRefs.indexOf(inventoryItemCrossRef);
+        crossRefs.set(index, new InventoryItemCrossRef(inventoryItemCrossRef));
     }
 
-    public List<ItemInventoryCrossRef> getItemsByInventoryId(int inventoryId) {
-        List<ItemInventoryCrossRef> list = new ArrayList<>();
-        for(ItemInventoryCrossRef entity: crossRefs) {
+    public List<InventoryItemCrossRef> getItemsByInventoryId(int inventoryId) {
+        List<InventoryItemCrossRef> list = new ArrayList<>();
+        for(InventoryItemCrossRef entity: crossRefs) {
             if(entity.getInventoryId() == inventoryId) {
                 list.add(entity.clone());
             }
@@ -32,8 +32,8 @@ public class ItemInventoryCrossRefRepository {
         return list;
     }
 
-    public void add(ItemInventoryCrossRef itemInventoryCrossRef) {
-        crossRefs.add(new ItemInventoryCrossRef(itemInventoryCrossRef));
+    public void add(InventoryItemCrossRef inventoryItemCrossRef) {
+        crossRefs.add(new InventoryItemCrossRef(inventoryItemCrossRef));
     }
 
     private ItemInventoryCrossRefRepository() {}

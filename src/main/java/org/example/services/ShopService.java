@@ -1,7 +1,7 @@
 package org.example.services;
 
+import org.example.data.entities.InventoryItemCrossRef;
 import org.example.data.entities.ItemEntity;
-import org.example.data.entities.ItemInventoryCrossRef;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
@@ -21,9 +21,9 @@ public class ShopService {
 
     public List<InventoryItem> getItemsByInventoryId(int inventoryId) {
         try {
-            List<ItemInventoryCrossRef> itemInventoryCrossRefs = itemInventoryCrossRefRepository.getItemsByInventoryId(inventoryId);
+            List<InventoryItemCrossRef> inventoryItemCrossRefs = itemInventoryCrossRefRepository.getItemsByInventoryId(inventoryId);
             List<InventoryItem> items = new ArrayList<>();
-            for(ItemInventoryCrossRef entity: itemInventoryCrossRefs) {
+            for(InventoryItemCrossRef entity: inventoryItemCrossRefs) {
                 ItemEntity itemEntity = itemRepository.getById(entity.itemId);
                 Item item = ItemMapper.asItem(itemEntity);
                 items.add(new InventoryItem(item, entity.count));
@@ -43,12 +43,12 @@ public class ShopService {
     public void addItemToShopInventory(int itemId, int shopId) {
         int inventoryId = shopRepository.getShopInventoryId(shopId);
         if(itemExistsInInventory(inventoryId, itemId)) {
-            ItemInventoryCrossRef itemInventoryCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
-            itemInventoryCrossRef.count += 1;
-            itemInventoryCrossRefRepository.update(itemInventoryCrossRef);
+            InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
+            inventoryItemCrossRef.count += 1;
+            itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
         }
         else {
-            itemInventoryCrossRefRepository.add(new ItemInventoryCrossRef(inventoryId, itemId, 1));
+            itemInventoryCrossRefRepository.add(new InventoryItemCrossRef(inventoryId, itemId, 1));
         }
 
     }

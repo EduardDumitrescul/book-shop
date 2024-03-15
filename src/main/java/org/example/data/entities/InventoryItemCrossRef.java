@@ -4,13 +4,13 @@ import org.example.data.Cloneable;
 
 import java.util.Objects;
 
-public class ItemInventoryCrossRef implements Cloneable {
+public class InventoryItemCrossRef implements Cloneable {
     public int itemId;
     public int inventoryId;
 
     public int count;
 
-    public ItemInventoryCrossRef(
+    public InventoryItemCrossRef(
             int inventoryId,
             int itemId,
             int count
@@ -20,7 +20,7 @@ public class ItemInventoryCrossRef implements Cloneable {
         this.count = count;
     }
 
-    public ItemInventoryCrossRef(ItemInventoryCrossRef obj) {
+    public InventoryItemCrossRef(InventoryItemCrossRef obj) {
         this.itemId = obj.itemId;
         this.inventoryId = obj.inventoryId;
         this.count = obj.count;
@@ -30,7 +30,7 @@ public class ItemInventoryCrossRef implements Cloneable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ItemInventoryCrossRef that = (ItemInventoryCrossRef) o;
+        InventoryItemCrossRef that = (InventoryItemCrossRef) o;
         return itemId == that.itemId && inventoryId == that.inventoryId;
     }
 
@@ -40,8 +40,8 @@ public class ItemInventoryCrossRef implements Cloneable {
     }
 
     @Override
-    public ItemInventoryCrossRef clone() {
-        return new ItemInventoryCrossRef(this);
+    public InventoryItemCrossRef clone() {
+        return new InventoryItemCrossRef(this);
     }
 
     public int getInventoryId() {
