@@ -15,10 +15,31 @@ public class ShopRepository {
                 return new ShopEntity(entity);
             }
         }
+
+
         return null;
     }
 
+    public int getShopInventoryId(int shopId) {
+        for(ShopEntity entity: shops) {
+            if(entity.getId() == shopId) {
+                return entity.getInventoryId();
+            }
+        }
+        return 0;
+    }
 
+    public void addShop(ShopEntity shop) {
+        generateId(shop);
+        shops.add(shop);
+    }
+
+
+    private static int idCount = 0;
+    private void generateId(ShopEntity shop) {
+        idCount ++;
+        shop.id = idCount;
+    }
 
     private ShopRepository() {}
 

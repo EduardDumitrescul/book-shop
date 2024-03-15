@@ -1,6 +1,7 @@
 package org.example.services;
 
 import org.example.data.Seeder;
+import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,12 +18,21 @@ class ShopServiceTest {
 
     @Test
     void getItemsByInventoryIdTest() {
-        List<Item> items = shopService.getItemsByInventoryId(1);
+        List<InventoryItem> items = shopService.getItemsByInventoryId(1);
         System.out.println(items);
     }
     @Test
     void getAllItem() {
         List<Item> items = shopService.getAllItems();
+        System.out.println(items);
+    }
+
+    @Test
+    void addItemToInventory() {
+        List<InventoryItem> items = shopService.getItemsByInventoryId(1);
+        System.out.println(items);
+        shopService.addItemToShopInventory(1, 1);
+        items = shopService.getItemsByInventoryId(1);
         System.out.println(items);
     }
 }

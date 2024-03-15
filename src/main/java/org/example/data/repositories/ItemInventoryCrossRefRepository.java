@@ -8,14 +8,28 @@ import java.util.List;
 public class ItemInventoryCrossRefRepository {
     private List<ItemInventoryCrossRef> crossRefs = new ArrayList<>();
 
-    public List<Integer> getItemIdsByInventoryId(int inventoryId) {
-        List<Integer> ids = new ArrayList<>();
+    public ItemInventoryCrossRef getInventoryItem(int inventoryId, int itemId) {
         for(ItemInventoryCrossRef entity: crossRefs) {
-            if(entity.getInventoryId() == inventoryId) {
-                ids.add(entity.getItemId());
+            if(entity.equals(new ItemInventoryCrossRef(inventoryId, itemId, 0))) {
+                return entity.clone();
             }
         }
-        return ids;
+        return null;
+    }
+
+    public void update(ItemInventoryCrossRef itemInventoryCrossRef) {
+        int index = crossRefs.indexOf(itemInventoryCrossRef);
+        crossRefs.set(index, new ItemInventoryCrossRef(itemInventoryCrossRef));
+    }
+
+    public List<ItemInventoryCrossRef> getItemsByInventoryId(int inventoryId) {
+        List<ItemInventoryCrossRef> list = new ArrayList<>();
+        for(ItemInventoryCrossRef entity: crossRefs) {
+            if(entity.getInventoryId() == inventoryId) {
+                list.add(entity.clone());
+            }
+        }
+        return list;
     }
 
     public void add(ItemInventoryCrossRef itemInventoryCrossRef) {

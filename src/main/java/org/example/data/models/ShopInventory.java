@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ShopInventory implements Cloneable {
     private int id;
-    private List<Item> items;
+    private List<InventoryItem> items;
 
-    public ShopInventory(int id, List<Item>items) {
+    public ShopInventory(int id, List<InventoryItem>items) {
         this.items = cloneItemList(items);
         this.id = id;
     }
@@ -19,10 +19,10 @@ public class ShopInventory implements Cloneable {
         this.id = obj.getId();
     }
 
-    private List<Item> cloneItemList(List<Item>items) {
-        List<Item> list = new ArrayList<>();
-        for(Item item: items) {
-            list.add(new Item(item));
+    private List<InventoryItem> cloneItemList(List<InventoryItem>items) {
+        List<InventoryItem> list = new ArrayList<>();
+        for(InventoryItem item: items) {
+            list.add(new InventoryItem(item));
         }
         return list;
     }
@@ -31,7 +31,7 @@ public class ShopInventory implements Cloneable {
         return id;
     }
 
-    public List<Item> getItems() {
+    public List<InventoryItem> getItems() {
         return items;
     }
 

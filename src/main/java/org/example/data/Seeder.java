@@ -26,7 +26,7 @@ public class Seeder {
             new ItemEntity(5, 50)
     ));
 
-    private static List<ShopEntity> shops = new ArrayList<>(List.of(
+    private final static List<ShopEntity> shops = new ArrayList<>(List.of(
             new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1)
     ));
 
@@ -35,16 +35,17 @@ public class Seeder {
     ));
 
     private static List<ItemInventoryCrossRef> itemInventoryCrossRefs = new ArrayList<>(List.of(
-            new ItemInventoryCrossRef(1, 1),
-            new ItemInventoryCrossRef(1, 2),
-            new ItemInventoryCrossRef(1, 3),
-            new ItemInventoryCrossRef(1, 4),
-            new ItemInventoryCrossRef(1, 5)
+            new ItemInventoryCrossRef(1, 1, 2),
+            new ItemInventoryCrossRef(1, 2, 3),
+            new ItemInventoryCrossRef(1, 3, 4),
+            new ItemInventoryCrossRef(1, 4, 5),
+            new ItemInventoryCrossRef(1, 5, 6)
     ));
 
     public static void seed() {
         seedItems();
         seedItemInventoryCrossRef();
+        seedShops();
     }
 
     public static void seedItems() {
@@ -56,6 +57,12 @@ public class Seeder {
     public static void seedItemInventoryCrossRef() {
         for(ItemInventoryCrossRef crossRef: itemInventoryCrossRefs) {
             itemInventoryCrossRefRepository.add(crossRef);
+        }
+    }
+
+    public static void seedShops() {
+        for(ShopEntity shop: shops) {
+            shopRepository.addShop(shop);
         }
     }
 

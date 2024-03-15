@@ -3,14 +3,14 @@ package org.example.data.entities;
 import org.example.data.Cloneable;
 
 public class ShopEntity implements Cloneable {
-    int id;
-    int openingHour;
-    int closingHour;
-    String location;
-    int itemsSold;
-    int dollarsReceived;
+    public int id;
+    public int openingHour;
+    public int closingHour;
+    public String location;
+    public int itemsSold;
+    public int dollarsReceived;
 
-    int inventoryId;
+    public int inventoryId;
 
     public ShopEntity(
             int id,
