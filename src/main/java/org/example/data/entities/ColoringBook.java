@@ -2,19 +2,19 @@ package org.example.data.entities;
 
 import org.example.data.Cloneable;
 
-public class DrawingBookEntity extends BaseEntity implements Cloneable {
+public class ColoringBook extends BaseEntity implements Cloneable {
     public String theme;
     public int numberOfDrawings;
     public int numberOfDrawingCompleted;
 
-    public DrawingBookEntity(int id, String theme, int numberOfDrawings, int numberOfDrawingCompleted) {
+    public ColoringBook(int id, String theme, int numberOfDrawings, int numberOfDrawingCompleted) {
         super(id);
         this.theme = theme;
         this.numberOfDrawings = numberOfDrawings;
         this.numberOfDrawingCompleted = numberOfDrawingCompleted;
     }
 
-    public DrawingBookEntity(DrawingBookEntity obj) {
+    public ColoringBook(ColoringBook obj) {
         super(obj.id);
         this.theme = obj.theme;
         this.numberOfDrawings = obj.numberOfDrawings;
@@ -22,7 +22,7 @@ public class DrawingBookEntity extends BaseEntity implements Cloneable {
     }
 
     @Override
-    public DrawingBookEntity clone() {
-        return new DrawingBookEntity(this);
+    public ColoringBook clone() {
+        return new ColoringBook(this);
     }
 }

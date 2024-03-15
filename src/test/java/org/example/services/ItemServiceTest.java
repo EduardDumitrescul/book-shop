@@ -2,7 +2,7 @@ package org.example.services;
 
 import org.example.data.Seeder;
 import org.example.data.models.Book;
-import org.example.data.models.DrawingBook;
+import org.example.data.models.ColoringBook;
 import org.example.data.models.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class ItemServiceTest {
         if(item instanceof Book) {
             System.out.println("book");
         }
-        else if(item instanceof DrawingBook) {
+        else if(item instanceof ColoringBook) {
             System.out.println("drawing book");
         }
         else {

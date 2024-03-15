@@ -9,7 +9,7 @@ import java.util.List;
 public class Seeder {
     private static ItemRepository itemRepository = ItemRepository.getInstance();
     private static BookRepository bookRepository = BookRepository.getInstance();
-    private static DrawingBookRepository drawingBookRepository = DrawingBookRepository.getInstance();
+    private static ColoringBookRepository coloringBookRepository = ColoringBookRepository.getInstance();
     private static ShopRepository shopRepository = ShopRepository.getInstance();
     private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -30,8 +30,8 @@ public class Seeder {
     private static List<BookEntity> books = new ArrayList<>(List.of(
             new BookEntity(1, "title 1", "author 1", 100, 0)
     ));
-    private static List<DrawingBookEntity> drawingBooks = new ArrayList<>(List.of(
-            new DrawingBookEntity(2, "title 1", 100, 0)
+    private static List<ColoringBook> drawingBooks = new ArrayList<>(List.of(
+            new ColoringBook(2, "title 1", 100, 0)
     ));
 
     private final static List<ShopEntity> shops = new ArrayList<>(List.of(
@@ -81,8 +81,8 @@ public class Seeder {
     }
 
     public static void seedDrawingBooks() {
-        for(DrawingBookEntity entity: drawingBooks) {
-            drawingBookRepository.add(new DrawingBookEntity(entity));
+        for(ColoringBook entity: drawingBooks) {
+            coloringBookRepository.add(new ColoringBook(entity));
         }
     }
 

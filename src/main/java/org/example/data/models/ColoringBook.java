@@ -2,20 +2,20 @@ package org.example.data.models;
 
 import org.example.data.Cloneable;
 
-public class DrawingBook extends Item implements Cloneable {
+public class ColoringBook extends Item implements Cloneable {
     private String theme;
     private int numberOfDrawings;
     private int numberOfDrawingsCompleted;
 
 
-    public DrawingBook(int id, int price, String theme, int numberOfDrawings, int numberOfDrawingsCompleted) {
+    public ColoringBook(int id, int price, String theme, int numberOfDrawings, int numberOfDrawingsCompleted) {
         super(id, price);
         this.theme = theme;
         this.numberOfDrawings = numberOfDrawings;
         this.numberOfDrawingsCompleted = numberOfDrawingsCompleted;
     }
 
-    public DrawingBook(DrawingBook obj) {
+    public ColoringBook(ColoringBook obj) {
         super(obj);
         this.theme = obj.theme;
         this.numberOfDrawings = obj.numberOfDrawings;
@@ -30,7 +30,7 @@ public class DrawingBook extends Item implements Cloneable {
     }
 
     @Override
-    public DrawingBook clone() {
-        return new DrawingBook(this);
+    public ColoringBook clone() {
+        return new ColoringBook(this);
     }
 }

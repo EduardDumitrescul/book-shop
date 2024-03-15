@@ -1,10 +1,9 @@
 package org.example.data.mappers;
 
 import org.example.data.entities.BookEntity;
-import org.example.data.entities.DrawingBookEntity;
 import org.example.data.entities.ItemEntity;
 import org.example.data.models.Book;
-import org.example.data.models.DrawingBook;
+import org.example.data.models.ColoringBook;
 import org.example.data.models.Item;
 
 public class ItemMapper {
@@ -25,13 +24,13 @@ public class ItemMapper {
         );
     }
 
-    public static DrawingBook asDrawingBook(ItemEntity itemEntity, DrawingBookEntity drawingBookEntity) {
-        return new DrawingBook(
+    public static ColoringBook asDrawingBook(ItemEntity itemEntity, org.example.data.entities.ColoringBook coloringBookEntity) {
+        return new ColoringBook(
                 itemEntity.id,
                 itemEntity.price,
-                drawingBookEntity.theme,
-                drawingBookEntity.numberOfDrawings,
-                drawingBookEntity.numberOfDrawingCompleted
+                coloringBookEntity.theme,
+                coloringBookEntity.numberOfDrawings,
+                coloringBookEntity.numberOfDrawingCompleted
         );
     }
 }
