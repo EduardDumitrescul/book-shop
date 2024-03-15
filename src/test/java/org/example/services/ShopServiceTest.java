@@ -35,4 +35,10 @@ class ShopServiceTest {
         items = shopService.getItemsByInventoryId(1);
         System.out.println(items);
     }
+
+    @Test
+    void userBuysItem() {
+        shopService.buyItem(1, 1, 1);
+
+    }
 }

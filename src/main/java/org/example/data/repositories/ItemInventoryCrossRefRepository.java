@@ -36,6 +36,10 @@ public class ItemInventoryCrossRefRepository {
         crossRefs.add(new InventoryItemCrossRef(inventoryItemCrossRef));
     }
 
+    public void delete(InventoryItemCrossRef inventoryItemCrossRef) {
+        crossRefs.remove(inventoryItemCrossRef);
+    }
+
     private ItemInventoryCrossRefRepository() {}
     private static ItemInventoryCrossRefRepository instance;
 

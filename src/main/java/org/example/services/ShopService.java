@@ -2,13 +2,12 @@ package org.example.services;
 
 import org.example.data.entities.InventoryItemCrossRef;
 import org.example.data.entities.ItemEntity;
+import org.example.data.entities.ShopEntity;
+import org.example.data.entities.UserEntity;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
-import org.example.data.repositories.InventoryRepository;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.ShopRepository;
+import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +17,8 @@ public class ShopService {
     private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
     private ItemRepository itemRepository = ItemRepository.getInstance();
+
+    private UserRepository userRepository = UserRepository.getInstance();
 
     public List<InventoryItem> getItemsByInventoryId(int inventoryId) {
         try {
@@ -40,8 +41,35 @@ public class ShopService {
         return itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId) != null;
     }
 
+    public void buyItem(int shopId, int userId, int itemId) {
+        removeItemFromShopInventory(shopId, itemId);
+        addItemToUserInventory(userId, itemId);
+    }
+
+    public void removeItemFromShopInventory(int shopId, int itemId) {
+        ShopEntity shopEntity = shopRepository.getById(shopId);
+        int inventoryId = shopEntity.inventoryId;
+        InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
+        if(inventoryItemCrossRef.count  == 1) {
+            itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
+        }
+        else {
+            inventoryItemCrossRef.count -= 1;
+            itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
+        }
+
+    }
+
+    private void addItemToUserInventory(int userId, int itemId) {
+        ItemEntity itemEntity = itemRepository.getById(itemId);
+        int newItemId = itemRepository.addItem(itemEntity);
+        UserEntity userEntity = userRepository.getUser(userId);
+        itemInventoryCrossRefRepository.add(new InventoryItemCrossRef(userEntity.inventoryId, newItemId, 1));
+    }
+
     public void addItemToShopInventory(int itemId, int shopId) {
-        int inventoryId = shopRepository.getShopInventoryId(shopId);
+        ShopEntity shopEntity = shopRepository.getById(shopId);
+        int inventoryId = shopEntity.inventoryId;
         if(itemExistsInInventory(inventoryId, itemId)) {
             InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
             inventoryItemCrossRef.count += 1;

@@ -20,15 +20,6 @@ public class ShopRepository {
         return null;
     }
 
-    public int getShopInventoryId(int shopId) {
-        for(ShopEntity entity: shops) {
-            if(entity.getId() == shopId) {
-                return entity.getInventoryId();
-            }
-        }
-        return 0;
-    }
-
     public void addShop(ShopEntity shop) {
         generateId(shop);
         shops.add(shop);

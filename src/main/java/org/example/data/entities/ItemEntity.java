@@ -4,8 +4,8 @@ import org.example.data.Cloneable;
 import org.example.data.models.Item;
 
 public class ItemEntity implements Cloneable {
-    int id;
-    int price;
+    public int id;
+    public int price;
 
     public ItemEntity(
             int id,

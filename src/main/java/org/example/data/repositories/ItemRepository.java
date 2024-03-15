@@ -32,8 +32,16 @@ public class ItemRepository {
         return ObjectCloningUtil.cloneList(items);
     }
 
-    public void addItem(ItemEntity entity) {
+    public int addItem(ItemEntity entity) {
+        generateId(entity);
         items.add(new ItemEntity(entity));
+        return entity.id;
+    }
+
+    private static int idCount = 0;
+    private void generateId(ItemEntity entity) {
+        idCount ++;
+        entity.id = idCount;
     }
 
     private static ItemRepository instance = null;
