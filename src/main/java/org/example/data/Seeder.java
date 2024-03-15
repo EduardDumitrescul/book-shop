@@ -1,13 +1,7 @@
 package org.example.data;
 
-import org.example.data.entities.InventoryEntity;
-import org.example.data.entities.InventoryItemCrossRef;
-import org.example.data.entities.ItemEntity;
-import org.example.data.entities.ShopEntity;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.ShopInventoryRepository;
-import org.example.data.repositories.ShopRepository;
+import org.example.data.entities.*;
+import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +9,14 @@ import java.util.List;
 public class Seeder {
     private static ItemRepository itemRepository = ItemRepository.getInstance();
     private static ShopRepository shopRepository = ShopRepository.getInstance();
-    private static ShopInventoryRepository shopInventoryRepository = ShopInventoryRepository.getInstance();
+    private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
+    private static UserRepository userRepository = UserRepository.getInstance();
 
+    private static List<UserEntity> users = new ArrayList<>(List.of(
+            new UserEntity(0, "owner", "owner", 2),
+            new UserEntity(0, "default", "default", 3)
+    ));
     private static List<ItemEntity> items = new ArrayList<>(List.of(
             new ItemEntity(1, 10),
             new ItemEntity(2, 20),
@@ -30,8 +29,10 @@ public class Seeder {
             new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1)
     ));
 
-    private static List<InventoryEntity> shopInventories = new ArrayList<>(List.of(
-            new InventoryEntity(1)
+    private static List<InventoryEntity> inventoryEntities = new ArrayList<>(List.of(
+            new InventoryEntity(1),
+            new InventoryEntity(2),
+            new InventoryEntity(3)
     ));
 
     private static List<InventoryItemCrossRef> inventoryItemCrossRefs = new ArrayList<>(List.of(
@@ -43,9 +44,17 @@ public class Seeder {
     ));
 
     public static void seed() {
+        seedUsers();
         seedItems();
         seedItemInventoryCrossRef();
         seedShops();
+        seedInventories();
+    }
+
+    public static void seedUsers() {
+        for(UserEntity entity: users) {
+            userRepository.add(entity);
+        }
     }
 
     public static void seedItems() {
@@ -63,6 +72,12 @@ public class Seeder {
     public static void seedShops() {
         for(ShopEntity shop: shops) {
             shopRepository.addShop(shop);
+        }
+    }
+
+    public static void seedInventories() {
+        for(InventoryEntity entity: inventoryEntities) {
+            inventoryRepository.add(entity);
         }
     }
 

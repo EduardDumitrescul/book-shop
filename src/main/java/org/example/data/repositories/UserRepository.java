@@ -13,6 +13,15 @@ public class UserRepository {
     private UserRepository() {}
 
 
+    public UserEntity getUser(int id) {
+        for(UserEntity entity: users) {
+            if(entity.id == id) {
+                return entity.clone();
+            }
+        }
+        return null;
+    }
+
     public boolean usernameExists(String username) {
         for(UserEntity user: users) {
             if(Objects.equals(user.username, username)) {
@@ -23,9 +32,10 @@ public class UserRepository {
     }
 
 
-    public void add(UserEntity user) {
+    public int add(UserEntity user) {
         generateId(user);
         users.add(user);
+        return user.id;
     }
 
 

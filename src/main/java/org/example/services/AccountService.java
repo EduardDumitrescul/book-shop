@@ -1,12 +1,26 @@
 package org.example.services;
 
+import org.example.data.entities.InventoryEntity;
+import org.example.data.entities.InventoryItemCrossRef;
+import org.example.data.entities.ItemEntity;
 import org.example.data.entities.UserEntity;
-import org.example.data.mappers.UserMapper;
+import org.example.data.mappers.ItemMapper;
+import org.example.data.models.Item;
 import org.example.data.models.User;
+import org.example.data.models.UserInventory;
+import org.example.data.repositories.InventoryRepository;
+import org.example.data.repositories.ItemInventoryCrossRefRepository;
+import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.UserRepository;
+
+import java.util.List;
 
 public class AccountService {
     private UserRepository userRepository = UserRepository.getInstance();
+    private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
+    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
+
+    private ItemRepository itemRepository = ItemRepository.getInstance();
 
     private User currentUser = null;
     private AccountService() {}
@@ -18,19 +32,47 @@ public class AccountService {
 
     public void register(String username, String password) throws Exception {
         if(isUnique(username)) {
-            User user = new User(0, username, password);
-            userRepository.add(UserMapper.asEntity(user));
-            currentUser = user;
+            InventoryEntity inventory = new InventoryEntity(0);
+            int inventoryId = inventoryRepository.add(inventory);
+
+            UserEntity user = new UserEntity(0, username, password, inventoryId);
+
+            int userId = userRepository.add(user);
+
+            currentUser = getUserById(userId);
         }
         else {
             throw new Exception("Username is already in use");
         }
     }
 
+    public User getUserById(int id) {
+        UserEntity userEntity = userRepository.getUser(id);
+        UserInventory userInventory = getInventoryById(userEntity.inventoryId);
+
+        User user = new User(userEntity.id, userEntity.username, userEntity.password, userInventory);
+        return user;
+    }
+
+    public List<Item> getItemsByInventoryId(int inventoryId) {
+        List<InventoryItemCrossRef> inventoryItemCrossRefs = itemInventoryCrossRefRepository.getItemsByInventoryId(inventoryId);
+        List<Integer> itemIds = inventoryItemCrossRefs.stream().map(e -> e.itemId).toList();
+        List<ItemEntity> itemEntities = itemRepository.getById(itemIds);
+        List<Item> items = itemEntities.stream().map(ItemMapper::asItem).toList();
+        return items;
+    }
+
+    public UserInventory getInventoryById(int id) {
+        InventoryEntity inventoryEntity = inventoryRepository.getById(id);
+        List<Item> items = getItemsByInventoryId(inventoryEntity.id);
+
+        UserInventory userInventory = new UserInventory(inventoryEntity.id, items);
+        return userInventory;
+    }
+
     public boolean passwordIsCorrect(String username, String password) {
         UserEntity entity = userRepository.findUserByUsername(username);
-        User user = UserMapper.asUser(entity);
-        return user.getPassword().equals(password);
+        return entity.password.equals(password);
     }
 
     public void login(String username, String password) throws Exception {
@@ -41,7 +83,7 @@ public class AccountService {
             throw new Exception("Password is incorrect!");
         }
         UserEntity entity  = userRepository.findUserByUsername(username);
-        currentUser = UserMapper.asUser(entity);
+        currentUser = getUserById(entity.id);
     }
 
 

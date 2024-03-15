@@ -5,9 +5,9 @@ import org.example.data.entities.ItemEntity;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
+import org.example.data.repositories.InventoryRepository;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
 import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.ShopInventoryRepository;
 import org.example.data.repositories.ShopRepository;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ShopService {
     private ShopRepository shopRepository = ShopRepository.getInstance();
-    private ShopInventoryRepository shopInventoryRepository = ShopInventoryRepository.getInstance();
+    private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
     private ItemRepository itemRepository = ItemRepository.getInstance();
 

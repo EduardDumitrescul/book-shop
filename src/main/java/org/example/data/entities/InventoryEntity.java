@@ -3,7 +3,7 @@ package org.example.data.entities;
 import org.example.data.Cloneable;
 
 public class InventoryEntity implements Cloneable {
-    int id;
+    public int id;
 
     public InventoryEntity(
             int id

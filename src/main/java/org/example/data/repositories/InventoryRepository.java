@@ -5,8 +5,15 @@ import org.example.data.entities.InventoryEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopInventoryRepository {
+public class InventoryRepository {
     private List<InventoryEntity> inventories = new ArrayList<>();
+
+    public int add(InventoryEntity entity) {
+        generateId(entity);
+        inventories.add(entity.clone());
+        return entity.id;
+    }
+
 
     public InventoryEntity getById(int id) {
         for(InventoryEntity entity: inventories) {
@@ -17,14 +24,20 @@ public class ShopInventoryRepository {
         return null;
     }
 
+    private static int idCount = 0;
+    private void generateId(InventoryEntity entity) {
+        idCount ++;
+        entity.id = idCount;
+    }
 
-    private ShopInventoryRepository() {}
 
-    private static ShopInventoryRepository instance = null;
+    private InventoryRepository() {}
 
-    public static ShopInventoryRepository getInstance() {
+    private static InventoryRepository instance = null;
+
+    public static InventoryRepository getInstance() {
         if(instance == null) {
-            instance = new ShopInventoryRepository();
+            instance = new InventoryRepository();
         }
         return instance;
     }

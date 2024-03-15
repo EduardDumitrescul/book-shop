@@ -10,7 +10,7 @@ public class UserRepositoryTest {
 
     @Test
     public void checkUsernameExists() {
-        UserEntity entity = new UserEntity(0, "new user", "new pass");
+        UserEntity entity = new UserEntity(0, "new user", "new pass", 1);
         userRepository.add(entity);
         assertTrue(userRepository.usernameExists(entity.username));
     }
