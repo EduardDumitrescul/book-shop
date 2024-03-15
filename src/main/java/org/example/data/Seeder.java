@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Seeder {
     private static ItemRepository itemRepository = ItemRepository.getInstance();
+    private static BookRepository bookRepository = BookRepository.getInstance();
     private static ShopRepository shopRepository = ShopRepository.getInstance();
     private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -23,6 +24,10 @@ public class Seeder {
             new ItemEntity(3, 30),
             new ItemEntity(4, 40),
             new ItemEntity(5, 50)
+    ));
+
+    private static List<BookEntity> books = new ArrayList<>(List.of(
+            new BookEntity(1, "title 1", "author 1", 100, 0)
     ));
 
     private final static List<ShopEntity> shops = new ArrayList<>(List.of(
@@ -46,6 +51,7 @@ public class Seeder {
     public static void seed() {
         seedUsers();
         seedItems();
+        seedBooks();
         seedItemInventoryCrossRef();
         seedShops();
         seedInventories();
@@ -60,6 +66,12 @@ public class Seeder {
     public static void seedItems() {
         for(ItemEntity entity: items) {
             itemRepository.addItem(new ItemEntity(entity));
+        }
+    }
+
+    public static void seedBooks() {
+        for(BookEntity entity: books) {
+            bookRepository.add(new BookEntity(entity));
         }
     }
 

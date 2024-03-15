@@ -1,6 +1,7 @@
 package org.example.services;
 
 import org.example.data.Seeder;
+import org.example.data.models.Book;
 import org.example.data.models.Item;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,11 @@ class ItemServiceTest {
     @Test
     void getItem() {
         Item item = itemService.getItem(1);
-        System.out.println(item);
+        if(item instanceof Book) {
+            System.out.println("book");
+        }
+        else {
+            System.out.println("item");
+        }
     }
 }

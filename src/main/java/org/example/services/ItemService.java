@@ -1,16 +1,28 @@
 package org.example.services;
 
+import org.example.data.entities.BookEntity;
 import org.example.data.entities.ItemEntity;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.Item;
+import org.example.data.repositories.BookRepository;
 import org.example.data.repositories.ItemRepository;
 
 public class ItemService {
     private ItemRepository itemRepository = ItemRepository.getInstance();
+    private BookRepository bookRepository = BookRepository.getInstance();
 
     public Item getItem(int id) {
         ItemEntity itemEntity = itemRepository.getById(id);
-        Item item = ItemMapper.asItem(itemEntity);
+        Item item;
+
+        if(bookRepository.exists(id)) {
+            BookEntity bookEntity = bookRepository.getById(id);
+            item = ItemMapper.asBook(itemEntity, bookEntity);
+        }
+        else {
+            item = ItemMapper.asItem(itemEntity);
+        }
+
         return item;
     }
 
