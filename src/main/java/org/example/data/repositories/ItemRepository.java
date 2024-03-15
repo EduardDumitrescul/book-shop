@@ -1,6 +1,7 @@
 package org.example.data.repositories;
 
 import org.example.data.entities.ItemEntity;
+import org.example.utils.ObjectCloningUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,10 @@ public class ItemRepository {
             }
         }
         return null;
+    }
+
+    public List<ItemEntity> getAll() {
+        return ObjectCloningUtil.cloneList(items);
     }
 
     public void addItem(ItemEntity entity) {

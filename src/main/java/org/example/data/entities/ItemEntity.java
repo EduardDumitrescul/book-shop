@@ -20,6 +20,8 @@ public class ItemEntity implements Cloneable {
         this.price = obj.price;
     }
 
+    public ItemEntity() {}
+
     @Override
     public ItemEntity clone() {
         return new ItemEntity(this);
@@ -36,4 +38,6 @@ public class ItemEntity implements Cloneable {
     public Item asItem() {
         return new Item(this.id, this.price);
     }
+
+
 }

@@ -20,4 +20,9 @@ class ShopServiceTest {
         List<Item> items = shopService.getItemsByInventoryId(1);
         System.out.println(items);
     }
+    @Test
+    void getAllItem() {
+        List<Item> items = shopService.getAllItems();
+        System.out.println(items);
+    }
 }

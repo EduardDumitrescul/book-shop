@@ -30,6 +30,11 @@ public class ShopService {
         return new ArrayList<>();
     }
 
+    public List<Item> getAllItems() {
+        List<ItemEntity> entities =  itemRepository.getAll();
+        List<Item> items = entities.stream().map(ItemMapper::asItem).toList();
+        return items;
+    }
 
 
     private ShopService() {}
