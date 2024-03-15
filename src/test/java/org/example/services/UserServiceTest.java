@@ -59,4 +59,5 @@ class UserServiceTest {
         User user = userService.getUserById(1);
         System.out.println(user.toString());
     }
+
 }

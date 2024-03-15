@@ -86,6 +86,12 @@ public class UserService {
         currentUser = getUserById(entity.id);
     }
 
+    public void throwAwayItem(int userId, int itemId) {
+        UserEntity userEntity = userRepository.getUser(userId);
+        InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(userEntity.inventoryId, itemId);
+        itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
+    }
+
 
     private static UserService instance = null;
     public static UserService getInstance() {
