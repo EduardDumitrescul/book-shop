@@ -2,8 +2,7 @@ package org.example.data.entities;
 
 import org.example.data.Cloneable;
 
-public class BookEntity implements Cloneable {
-    public int id;
+public class BookEntity extends BaseEntity implements Cloneable {
     public String title;
     public String author;
 
@@ -11,7 +10,7 @@ public class BookEntity implements Cloneable {
     public int numberOfPagesRead;
 
     public BookEntity(int id, String title, String author, int numberOfPages, int numberOfPagesRead) {
-        this.id = id;
+        super(id);
         this.title = title;
         this.author = author;
         this.numberOfPages = numberOfPages;
@@ -19,7 +18,7 @@ public class BookEntity implements Cloneable {
     }
 
     public BookEntity(BookEntity obj) {
-        this.id = obj.id;
+        super(obj.id);
         this.title = obj.title;
         this.author = obj.author;
         this.numberOfPages = obj.numberOfPages;
