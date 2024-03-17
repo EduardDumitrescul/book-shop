@@ -1,13 +1,7 @@
 package org.example.data.mappers;
 
-import org.example.data.entities.BookEntity;
-import org.example.data.entities.ColoringBookEntity;
-import org.example.data.entities.ItemEntity;
-import org.example.data.entities.NotebookEntity;
-import org.example.data.models.Book;
-import org.example.data.models.ColoringBook;
-import org.example.data.models.Item;
-import org.example.data.models.Notebook;
+import org.example.data.entities.*;
+import org.example.data.models.*;
 
 public class ItemMapper {
     private ItemMapper() {}
@@ -44,6 +38,16 @@ public class ItemMapper {
                 notebookEntity.type,
                 notebookEntity.numberOfPages,
                 notebookEntity.numberOfPagesWritten
+        );
+    }
+
+    public static Cookbook asCookbook(ItemEntity itemEntity, CookbookEntity cookbookEntity) {
+        return new Cookbook(
+                itemEntity.id,
+                itemEntity.price,
+                cookbookEntity.skillLevel,
+                cookbookEntity.numberOfRecipes,
+                cookbookEntity.numberOfRecopesTried
         );
     }
 }

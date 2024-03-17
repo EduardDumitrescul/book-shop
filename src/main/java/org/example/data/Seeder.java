@@ -11,6 +11,8 @@ public class Seeder {
     private static BookRepository bookRepository = BookRepository.getInstance();
     private static ColoringBookRepository coloringBookRepository = ColoringBookRepository.getInstance();
     private static NotebookRepository notebookRepository = NotebookRepository.getInstance();
+
+    private static CookbookRepository cookbookRepository = CookbookRepository.getInstance();
     private static ShopRepository shopRepository = ShopRepository.getInstance();
     private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -37,6 +39,9 @@ public class Seeder {
     private static List<NotebookEntity> notebooks = new ArrayList<>(List.of(
             new NotebookEntity(3, "lined", 100, 0)
     ));
+    private static List<CookbookEntity> cookbooks = new ArrayList<>(List.of(
+            new CookbookEntity(4, "beginner", 100, 0)
+    ));
 
     private final static List<ShopEntity> shops = new ArrayList<>(List.of(
             new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1)
@@ -62,6 +67,7 @@ public class Seeder {
         seedBooks();
         seedDrawingBooks();
         seedNotebooks();
+        seedCookbooks();
         seedItemInventoryCrossRef();
         seedShops();
         seedInventories();
@@ -93,6 +99,11 @@ public class Seeder {
     public static void seedNotebooks() {
         for(NotebookEntity entity: notebooks) {
             notebookRepository.add(new NotebookEntity(entity));
+        }
+    }
+    public static void seedCookbooks() {
+        for(CookbookEntity entity: cookbooks) {
+            cookbookRepository.add(new CookbookEntity(entity));
         }
     }
 
