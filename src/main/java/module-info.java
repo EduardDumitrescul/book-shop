@@ -10,5 +10,6 @@ module org.example.bookshopfx {
     requires eu.hansolo.tilesfx;
 
     opens org.example.bookshopfx to javafx.fxml;
+    opens org.example.bookshopfx.login to javafx.fxml;
     exports org.example.bookshopfx;
 }
