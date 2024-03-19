@@ -1,7 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
-
 import java.util.Objects;
 
 public class InventoryItemCrossRef implements Cloneable {

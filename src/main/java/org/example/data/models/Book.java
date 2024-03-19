@@ -1,7 +1,5 @@
 package org.example.data.models;
 
-import org.example.data.Cloneable;
-
 public class Book extends Item implements Cloneable {
     private String title;
     private String author;

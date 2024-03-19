@@ -1,7 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
-
 public abstract class BaseEntity implements Cloneable {
 
     public int id;

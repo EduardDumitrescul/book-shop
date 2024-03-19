@@ -1,7 +1,5 @@
 package org.example.data.models;
 
-import org.example.data.Cloneable;
-
 public class User implements Cloneable {
     private int id;
     private String username;

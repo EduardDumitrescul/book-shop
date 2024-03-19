@@ -1,6 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
 import org.example.data.models.Item;
 
 public class ItemEntity implements Cloneable {

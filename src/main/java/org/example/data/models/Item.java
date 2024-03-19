@@ -1,7 +1,5 @@
 package org.example.data.models;
 
-import org.example.data.Cloneable;
-
 public class Item implements Cloneable {
     private int id;
     private int price;

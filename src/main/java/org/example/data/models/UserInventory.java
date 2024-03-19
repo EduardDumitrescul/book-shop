@@ -1,7 +1,5 @@
 package org.example.data.models;
 
-import org.example.data.Cloneable;
-
 import java.util.List;
 
 public class UserInventory implements Cloneable {

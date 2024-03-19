@@ -1,7 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
-
 public class BookEntity extends BaseEntity implements Cloneable {
     public String title;
     public String author;

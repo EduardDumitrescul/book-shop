@@ -1,7 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
-
 public class ShopEntity implements Cloneable {
     public int id;
     public int openingHour;

@@ -1,7 +1,5 @@
 package org.example.data.entities;
 
-import org.example.data.Cloneable;
-
 public class UserEntity implements Cloneable {
     public int id;
     public String username;
