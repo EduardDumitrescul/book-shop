@@ -1,0 +1,55 @@
+package org.example.bookshopfx.navigation;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.example.bookshopfx.HelloApplication;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class NavigationController {
+    private Stage stage;
+
+    private List<Screen> screens = new ArrayList<>(List.of(
+            new Screen("login", "login/login.fxml"),
+            new Screen("home", "home/home.fxml"),
+            new Screen("shop", "shop/shop.fxml")
+    ));
+
+    public void showScreen(String tag) {
+        try {
+            for(Screen screen: screens) {
+                if(Objects.equals(screen.tag, tag)) {
+                    stage.getScene().setRoot(screen.loader.load());
+                }
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static NavigationController instance = null;
+
+    private NavigationController() {
+        try {
+            stage = new Stage();
+            stage.setTitle("Book Shop");
+            FXMLLoader loginView = new FXMLLoader(HelloApplication.class.getResource("login/login-view.fxml"));
+            stage.setScene(new Scene(loginView.load()));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static NavigationController getInstance() {
+        if(instance == null) {
+            instance = new NavigationController();
+        }
+        return instance;
+    }
+}

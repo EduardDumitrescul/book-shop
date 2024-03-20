@@ -3,7 +3,7 @@ package org.example.bookshopfx.home;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
-import org.example.bookshopfx.NavigationController;
+import org.example.bookshopfx.navigation.NavigationController;
 import org.example.services.UserService;
 
 public class HomeController {
@@ -46,6 +46,6 @@ public class HomeController {
     }
 
     public void showShop(ActionEvent actionEvent) {
-        NavigationController.getInstance().showShopView();
+        NavigationController.getInstance().showScreen("shop");
     }
 }

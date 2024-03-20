@@ -3,7 +3,7 @@ package org.example.bookshopfx.login;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import org.example.bookshopfx.NavigationController;
+import org.example.bookshopfx.navigation.NavigationController;
 import org.example.services.UserService;
 
 public class LoginController {
@@ -23,10 +23,9 @@ public class LoginController {
         try {
             userService.login(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showHomeView();
+            navController.showScreen("home");
         } catch (Exception e) {
             helperText.setText(e.getMessage());
-            throw new RuntimeException(e);
         }
     }
 
@@ -37,7 +36,7 @@ public class LoginController {
         try {
             userService.register(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showHomeView();
+            navController.showScreen("home");
         } catch (Exception e) {
             helperText.setText(e.getMessage());
         }
