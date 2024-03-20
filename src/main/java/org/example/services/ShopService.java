@@ -1,18 +1,20 @@
 package org.example.services;
 
-import org.example.data.entities.InventoryItemCrossRef;
-import org.example.data.entities.ItemEntity;
-import org.example.data.entities.ShopEntity;
-import org.example.data.entities.UserEntity;
+import org.example.data.entities.*;
 import org.example.data.mappers.ItemMapper;
+import org.example.data.mappers.ShopMapper;
 import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
+import org.example.data.models.Shop;
+import org.example.data.models.ShopInventory;
 import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShopService {
+
+    private ItemService itemService = ItemService.getInstance();
     private ShopRepository shopRepository = ShopRepository.getInstance();
     private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -25,8 +27,7 @@ public class ShopService {
             List<InventoryItemCrossRef> inventoryItemCrossRefs = itemInventoryCrossRefRepository.getItemsByInventoryId(inventoryId);
             List<InventoryItem> items = new ArrayList<>();
             for(InventoryItemCrossRef entity: inventoryItemCrossRefs) {
-                ItemEntity itemEntity = itemRepository.getById(entity.itemId);
-                Item item = ItemMapper.asItem(itemEntity);
+                Item item = itemService.getItem(entity.itemId);
                 items.add(new InventoryItem(item, entity.count));
             }
             return items;
@@ -58,6 +59,23 @@ public class ShopService {
             itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
         }
 
+    }
+
+    public ShopInventory getShopInventory(int shopId) {
+        ShopEntity shopEntity = shopRepository.getById(shopId);
+        InventoryEntity inventoryEntity = inventoryRepository.getById(shopEntity.inventoryId);
+        ShopInventory shopInventory = new ShopInventory(
+                inventoryEntity.id,
+                getItemsByInventoryId(inventoryEntity.id));
+        return new ShopInventory(shopInventory);
+    }
+
+    public Shop getShop() {
+        int id = 1;
+        ShopEntity shopEntity = shopRepository.getById(id);
+        ShopInventory shopInventory = getShopInventory(id);
+        Shop shop = ShopMapper.asShop(shopEntity, shopInventory);
+        return shop;
     }
 
     private void addItemToUserInventory(int userId, int itemId) {

@@ -31,4 +31,9 @@ public class Notebook extends Item {
     public Item clone() {
         return new Notebook(this);
     }
+
+    @Override
+    public String description() {
+        return "Notebook - " + type;
+    }
 }

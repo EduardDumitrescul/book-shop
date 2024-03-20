@@ -34,4 +34,9 @@ public class Book extends Item implements Cloneable {
     public Book clone() {
         return new Book(this);
     }
+
+    @Override
+    public String description() {
+        return "Book - " + title + ", " + author;
+    }
 }

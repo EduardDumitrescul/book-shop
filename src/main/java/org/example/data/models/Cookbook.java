@@ -31,4 +31,9 @@ public class Cookbook extends Item implements Cloneable {
     public Cookbook clone() {
         return new Cookbook(this);
     }
+
+    @Override
+    public String description() {
+        return "Cookbook - " + skillLevel;
+    }
 }

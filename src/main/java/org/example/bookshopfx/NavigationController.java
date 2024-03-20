@@ -45,6 +45,15 @@ public class NavigationController {
         }
     }
 
+    public void showShopView() {
+        try {
+            FXMLLoader secondView = new FXMLLoader(HelloApplication.class.getResource("shop/shop.fxml"));
+            stage.getScene().setRoot(secondView.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static NavigationController instance = null;
 
     private NavigationController() {
@@ -57,6 +66,8 @@ public class NavigationController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        showShopView();
 
     }
 

@@ -46,5 +46,6 @@ public class HomeController {
     }
 
     public void showShop(ActionEvent actionEvent) {
+        NavigationController.getInstance().showShopView();
     }
 }

@@ -22,6 +22,10 @@ public class Item implements Cloneable {
         return price;
     }
 
+    public String description() {
+        return "sdfs";
+    }
+
     @Override
     public Item clone() {
         return new Item(this);

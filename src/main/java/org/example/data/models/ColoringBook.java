@@ -31,4 +31,9 @@ public class ColoringBook extends Item implements Cloneable {
     public ColoringBook clone() {
         return new ColoringBook(this);
     }
+
+    @Override
+    public String description() {
+        return "Coloring book - " + theme;
+    }
 }

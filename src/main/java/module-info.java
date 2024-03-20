@@ -12,5 +12,6 @@ module org.example.bookshopfx {
     opens org.example.bookshopfx to javafx.fxml;
     opens org.example.bookshopfx.login to javafx.fxml;
     opens org.example.bookshopfx.home to javafx.fxml;
+    opens org.example.bookshopfx.shop to javafx.fxml;
     exports org.example.bookshopfx;
 }

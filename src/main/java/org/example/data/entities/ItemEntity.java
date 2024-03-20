@@ -34,9 +34,5 @@ public class ItemEntity implements Cloneable {
         return price;
     }
 
-    public Item asItem() {
-        return new Item(this.id, this.price);
-    }
-
 
 }

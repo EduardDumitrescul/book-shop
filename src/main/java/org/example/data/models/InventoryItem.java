@@ -5,15 +5,18 @@ public class InventoryItem implements Cloneable {
     private int count;
 
     public InventoryItem(Item item, int count) {
-        this.item = new Item(item);
+        this.item = item.clone();
         this.count = count;
     }
 
     public InventoryItem(InventoryItem obj) {
-        this.item = new Item(obj.item);
+        this.item = obj.item.clone();
         this.count = obj.count;
     }
 
+    public Item getItem() {
+        return item.clone();
+    }
 
     @Override
     public Cloneable clone() {
