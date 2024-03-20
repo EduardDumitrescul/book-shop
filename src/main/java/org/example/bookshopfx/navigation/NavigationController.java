@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Stack;
 
 public class NavigationController {
     private Stage stage;
 
+    private Stack<Screen> navStack = new Stack<>();
     private List<Screen> screens = new ArrayList<>(List.of(
             new Screen("login", "login/login.fxml"),
             new Screen("home", "home/home.fxml"),
@@ -23,11 +25,22 @@ public class NavigationController {
         try {
             for(Screen screen: screens) {
                 if(Objects.equals(screen.tag, tag)) {
-                    stage.getScene().setRoot(screen.loader.load());
+                    stage.getScene().setRoot(screen.loader().load());
+                    navStack.push(screen);
                 }
             }
 
         } catch (IOException e) {
+             throw new RuntimeException(e);
+        }
+    }
+
+    public void navigateBack() {
+        try {
+            navStack.pop();
+            Screen screen = navStack.pop();
+            showScreen(screen.tag);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

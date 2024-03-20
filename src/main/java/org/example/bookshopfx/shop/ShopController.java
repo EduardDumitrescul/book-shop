@@ -1,7 +1,9 @@
 package org.example.bookshopfx.shop;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.InventoryItem;
 import org.example.services.ShopService;
 
@@ -26,6 +28,10 @@ public class ShopController implements UpdateShopCallback {
     @Override
     public void call() {
         setupModel();
+    }
+
+    public void back(ActionEvent actionEvent) {
+        NavigationController.getInstance().showScreen("home");
     }
 }
 
