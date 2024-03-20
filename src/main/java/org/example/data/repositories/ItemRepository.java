@@ -22,7 +22,7 @@ public class ItemRepository {
     public ItemEntity getById(int id) {
         for(ItemEntity entity: items) {
             if(entity.getId() == id) {
-                return entity;
+                return entity.clone();
             }
         }
         return null;
@@ -33,8 +33,9 @@ public class ItemRepository {
     }
 
     public int addItem(ItemEntity entity) {
-        generateId(entity);
-        items.add(new ItemEntity(entity));
+        ItemEntity item = entity.clone();
+        generateId(item);
+        items.add(item);
         return entity.id;
     }
 

@@ -67,7 +67,7 @@ public class NavigationController {
             throw new RuntimeException(e);
         }
 
-        showShopView();
+//        showShopView();
 
     }
 

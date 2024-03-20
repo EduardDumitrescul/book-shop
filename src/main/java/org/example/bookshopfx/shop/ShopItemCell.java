@@ -1,13 +1,10 @@
 package org.example.bookshopfx.shop;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import org.example.bookshopfx.HelloApplication;
 import org.example.data.models.InventoryItem;
-import org.example.data.models.Item;
 
 import java.io.IOException;
 
@@ -18,11 +15,12 @@ public class ShopItemCell extends ListCell<InventoryItem> {
     private ShopItemController controller;
 
 
-    public ShopItemCell() {
+    public ShopItemCell(UpdateShopCallback updateShopCallback) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("shop/shop-item.fxml"));
             root = fxmlLoader.load();
             controller = fxmlLoader.getController();
+            controller.setUpdateShopCallback(updateShopCallback);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

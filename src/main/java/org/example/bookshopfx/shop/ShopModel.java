@@ -11,6 +11,7 @@ public class ShopModel {
 
     public void setShop(Shop shop) {
         this.shop = shop;
+        itemList.clear();
         for(InventoryItem inventoryItem: shop.getInventory().getItems()) {
             itemList.add(inventoryItem);
         }

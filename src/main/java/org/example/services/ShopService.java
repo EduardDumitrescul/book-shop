@@ -46,18 +46,44 @@ public class ShopService {
         removeItemFromShopInventory(shopId, itemId);
         addItemToUserInventory(userId, itemId);
     }
+    public void buyItem(int userId, int itemId) {
+        removeItemFromShopInventory(1, itemId);
+        addItemToUserInventory(userId, itemId);
+    }
+
+    public InventoryItem getInventoryItem(int itemId) {
+        try {
+            int shopId = 1;
+            int inventoryId = getShopInventory(shopId).getId();
+            InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
+            ItemEntity itemEntity = itemRepository.getById(inventoryItemCrossRef.itemId);
+            InventoryItem item = ItemMapper.asInventoryItem(itemEntity, inventoryItemCrossRef.count);
+            return item;
+        } catch (Exception e) {
+            ItemEntity itemEntity = itemRepository.getById(itemId);
+            InventoryItem item = ItemMapper.asInventoryItem(itemEntity, 0);
+            return item;
+        }
+
+    }
 
     public void removeItemFromShopInventory(int shopId, int itemId) {
-        ShopEntity shopEntity = shopRepository.getById(shopId);
-        int inventoryId = shopEntity.inventoryId;
-        InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
-        if(inventoryItemCrossRef.count  == 1) {
-            itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
+        try {
+            ShopEntity shopEntity = shopRepository.getById(shopId);
+            int inventoryId = shopEntity.inventoryId;
+            InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
+            if(inventoryItemCrossRef.count  == 1) {
+                itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
+            }
+            else {
+                inventoryItemCrossRef.count -= 1;
+                itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
+            }
         }
-        else {
-            inventoryItemCrossRef.count -= 1;
-            itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
+        catch (Exception ignored) {
+
         }
+
 
     }
 

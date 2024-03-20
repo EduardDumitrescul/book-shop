@@ -50,4 +50,8 @@ public class ItemMapper {
                 cookbookEntity.numberOfRecopesTried
         );
     }
+
+    public static InventoryItem asInventoryItem(ItemEntity entity, int count) {
+        return new InventoryItem(ItemMapper.asItem(entity), count);
+    }
 }
