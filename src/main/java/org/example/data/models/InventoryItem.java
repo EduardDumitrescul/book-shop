@@ -18,6 +18,10 @@ public class InventoryItem implements Cloneable {
         return item.clone();
     }
 
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public Cloneable clone() {
         return new InventoryItem(this);
