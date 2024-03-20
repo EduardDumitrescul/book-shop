@@ -36,4 +36,16 @@ public class ColoringBook extends Item implements Cloneable {
     public String description() {
         return "Coloring book - " + theme;
     }
+
+    public int getNumberOfDrawings() {
+        return numberOfDrawings;
+    }
+
+    public int getNumberOfDrawingsCompleted() {
+        return numberOfDrawingsCompleted;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
 }

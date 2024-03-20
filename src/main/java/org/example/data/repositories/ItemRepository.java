@@ -36,7 +36,7 @@ public class ItemRepository {
         ItemEntity item = entity.clone();
         generateId(item);
         items.add(item);
-        return entity.id;
+        return item.id;
     }
 
     private static int idCount = 0;

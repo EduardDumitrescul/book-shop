@@ -36,4 +36,16 @@ public class Notebook extends Item {
     public String description() {
         return "Notebook - " + type;
     }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public int getNumberOfPagesWritten() {
+        return numberOfPagesWritten;
+    }
+
+    public String getType() {
+        return type;
+    }
 }

@@ -16,6 +16,7 @@ import org.example.data.repositories.UserRepository;
 import java.util.List;
 
 public class UserService {
+    private ItemService itemService = ItemService.getInstance();
     private UserRepository userRepository = UserRepository.getInstance();
     private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
@@ -58,7 +59,7 @@ public class UserService {
         List<InventoryItemCrossRef> inventoryItemCrossRefs = itemInventoryCrossRefRepository.getItemsByInventoryId(inventoryId);
         List<Integer> itemIds = inventoryItemCrossRefs.stream().map(e -> e.itemId).toList();
         List<ItemEntity> itemEntities = itemRepository.getById(itemIds);
-        List<Item> items = itemEntities.stream().map(ItemMapper::asItem).toList();
+        List<Item> items = itemEntities.stream().map(ent -> itemService.getItem(ent.id)).toList();
         return items;
     }
 
@@ -93,7 +94,7 @@ public class UserService {
     }
 
     public User getCurrentUser() {
-        return currentUser;
+        return getUserById(currentUser.getId());
     }
 
     private static UserService instance = null;

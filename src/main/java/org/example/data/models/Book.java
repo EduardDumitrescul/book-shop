@@ -39,4 +39,30 @@ public class Book extends Item implements Cloneable {
     public String description() {
         return "Book - " + title + ", " + author;
     }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public int getPrice() {
+        return super.getPrice();
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public int getNumberOfPagesRead() {
+        return numberOfPagesRead;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }

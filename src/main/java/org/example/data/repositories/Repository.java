@@ -9,7 +9,7 @@ public abstract class Repository<T extends BaseEntity> {
     private List<T> entities = new ArrayList<>();
 
     public int add(T entity) {
-        generateId(entity);
+//        generateId(entity);
         entities.add((T) entity.clone());
         return entity.id;
     }
@@ -41,11 +41,11 @@ public abstract class Repository<T extends BaseEntity> {
         entities.remove(entity);
     }
 
-    private static int idCount = 0;
-    private void generateId(T entity) {
-        idCount ++;
-        entity.id = idCount;
-    }
+//    private static int idCount = 0;
+//    private void generateId(T entity) {
+//        idCount ++;
+//        entity.id = idCount;
+//    }
     protected Repository() {}
 
     public static Repository getInstance() {

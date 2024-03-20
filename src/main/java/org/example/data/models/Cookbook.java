@@ -36,4 +36,16 @@ public class Cookbook extends Item implements Cloneable {
     public String description() {
         return "Cookbook - " + skillLevel;
     }
+
+    public int getNumberOfRecipes() {
+        return numberOfRecipes;
+    }
+
+    public int getNumberOfRecipesTried() {
+        return numberOfRecipesTried;
+    }
+
+    public String getSkillLevel() {
+        return skillLevel;
+    }
 }

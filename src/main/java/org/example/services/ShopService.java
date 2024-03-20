@@ -105,8 +105,8 @@ public class ShopService {
     }
 
     private void addItemToUserInventory(int userId, int itemId) {
-        ItemEntity itemEntity = itemRepository.getById(itemId);
-        int newItemId = itemRepository.addItem(itemEntity);
+        Item item = itemService.getItem(itemId);
+        int newItemId = itemService.addItem(item);
         UserEntity userEntity = userRepository.getUser(userId);
         itemInventoryCrossRefRepository.add(new InventoryItemCrossRef(userEntity.inventoryId, newItemId, 1));
     }

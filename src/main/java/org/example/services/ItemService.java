@@ -2,7 +2,7 @@ package org.example.services;
 
 import org.example.data.entities.*;
 import org.example.data.mappers.ItemMapper;
-import org.example.data.models.Item;
+import org.example.data.models.*;
 import org.example.data.repositories.*;
 
 public class ItemService {
@@ -38,6 +38,33 @@ public class ItemService {
         }
 
         return item;
+    }
+
+    public int addItem(Item item) {
+        ItemEntity itemEntity = ItemMapper.asEntity(item);
+        int id = itemRepository.addItem(itemEntity);
+
+        if(item instanceof Book) {
+            BookEntity bookEntity = ItemMapper.asEntity((Book)item);
+            bookEntity.id = id;
+            bookRepository.add(bookEntity);
+        }
+        if(item instanceof ColoringBook) {
+            ColoringBookEntity coloringBookEntity = ItemMapper.asEntity((ColoringBook)item);
+            coloringBookEntity.id = id;
+            coloringBookRepository.add(coloringBookEntity);
+        }
+        if(item instanceof Notebook) {
+            NotebookEntity notebookEntity = ItemMapper.asEntity((Notebook)item);
+            notebookEntity.id = id;
+            notebookRepository.add(notebookEntity);
+        }
+        if(item instanceof Cookbook) {
+            CookbookEntity cookbookEntity = ItemMapper.asEntity((Cookbook)item);
+            cookbookEntity.id = id;
+            cookbookRepository.add(cookbookEntity);
+        }
+        return id;
     }
 
     private static ItemService instance = null;
