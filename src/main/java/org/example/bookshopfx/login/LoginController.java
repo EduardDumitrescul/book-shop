@@ -23,9 +23,10 @@ public class LoginController {
         try {
             userService.login(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showFirstView();
+            navController.showHomeView();
         } catch (Exception e) {
             helperText.setText(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
@@ -36,7 +37,7 @@ public class LoginController {
         try {
             userService.register(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showFirstView();
+            navController.showHomeView();
         } catch (Exception e) {
             helperText.setText(e.getMessage());
         }

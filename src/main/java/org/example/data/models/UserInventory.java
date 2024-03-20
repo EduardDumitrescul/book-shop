@@ -17,6 +17,43 @@ public class UserInventory implements Cloneable {
         this.items = obj.items;
     }
 
+    public int getNumberOfBooks() {
+        int count = 0;
+        for(Item item: items) {
+            if(item instanceof Book) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfColoringBooks() {
+        int count = 0;
+        for(Item item: items) {
+            if(item instanceof ColoringBook) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfNotebooks() {
+        int count = 0;
+        for(Item item: items) {
+            if(item instanceof Notebook) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+    public int getNumberOfCookbooks() {
+        int count = 0;
+        for(Item item: items) {
+            if(item instanceof Cookbook) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
 
     @Override
     public Cloneable clone() {

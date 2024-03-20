@@ -36,6 +36,15 @@ public class NavigationController {
         }
     }
 
+    public void showHomeView() {
+        try {
+            FXMLLoader secondView = new FXMLLoader(HelloApplication.class.getResource("home/home.fxml"));
+            stage.getScene().setRoot(secondView.load());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static NavigationController instance = null;
 
     private NavigationController() {

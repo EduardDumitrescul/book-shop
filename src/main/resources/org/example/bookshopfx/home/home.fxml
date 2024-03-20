@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.bookshopfx.home.HomeController"
+      prefHeight="400.0" prefWidth="600.0">
+
+    <HBox>
+        <Text text="Current user: "/>
+        <Text fx:id="usernameText"/>
+    </HBox>
+
+    <VBox maxWidth="200">
+        <Text text="Inventory Overview:"/>
+        <Separator/>
+        <HBox>
+            <Text text="You currently have:"/>
+            <VBox>
+                <Text fx:id="numberOfBooks"/>
+                <Text fx:id="numberOfColoringBooks"/>
+                <Text fx:id="numberOfNotebooks"/>
+                <Text fx:id="numberOfCookbooks"/>
+            </VBox>
+        </HBox>
+        <Button text="View inventory" onAction="#showInventory"/>
+        <Button text="View shop" onAction="#showShop"/>
+    </VBox>
+</VBox>

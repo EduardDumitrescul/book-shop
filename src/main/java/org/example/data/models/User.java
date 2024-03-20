@@ -29,6 +29,10 @@ public class User implements Cloneable {
         return username;
     }
 
+    public UserInventory getInventory() {
+        return new UserInventory(inventory);
+    }
+
     public void setId(int id) {
         this.id = id;
     }

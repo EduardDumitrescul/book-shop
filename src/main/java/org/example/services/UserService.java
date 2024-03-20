@@ -92,6 +92,9 @@ public class UserService {
         itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
 
     private static UserService instance = null;
     public static UserService getInstance() {
