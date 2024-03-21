@@ -42,7 +42,7 @@ public class HomeController {
     }
 
     public void showInventory(ActionEvent actionEvent) {
-        
+        NavigationController.getInstance().showScreen("inventory");
     }
 
     public void showShop(ActionEvent actionEvent) {

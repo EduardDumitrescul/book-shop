@@ -1,5 +1,8 @@
 package org.example.data.models;
 
+import org.example.data.mappers.ItemMapper;
+import org.example.utils.ObjectCloningUtil;
+
 import java.util.List;
 
 public class UserInventory implements Cloneable {
@@ -54,6 +57,9 @@ public class UserInventory implements Cloneable {
         return count;
     }
 
+    public List<Item> getItems() {
+        return items.stream().map(Item::new).toList();
+    }
 
     @Override
     public Cloneable clone() {

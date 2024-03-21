@@ -97,6 +97,11 @@ public class UserService {
         return getUserById(currentUser.getId());
     }
 
+    public UserInventory getCurrentUserInventory() {
+        int inventoryId = userRepository.getUser(currentUser.getId()).inventoryId;
+        return getInventoryById(inventoryId);
+    }
+
     private static UserService instance = null;
     public static UserService getInstance() {
         if(instance == null) {

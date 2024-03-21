@@ -18,7 +18,8 @@ public class NavigationController {
     private List<Screen> screens = new ArrayList<>(List.of(
             new Screen("login", "login/login.fxml"),
             new Screen("home", "home/home.fxml"),
-            new Screen("shop", "shop/shop.fxml")
+            new Screen("shop", "shop/shop.fxml"),
+            new Screen("inventory", "home/inventory.fxml")
     ));
 
     public void showScreen(String tag) {
