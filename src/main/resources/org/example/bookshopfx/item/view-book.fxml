@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.controlsfx.control.ListActionView?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.bookshopfx.item.ViewBookController">
+    <GridPane>
+        <Label text="Title: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text="Author: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label text="Total pages: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="Current page: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+        <Label fx:id="title" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label fx:id="author" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label fx:id="totalPages" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label fx:id="currentPage" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+    <HBox>
+        <Button text="Back" onAction="#back"/>
+        <Button text="Read" onAction="#read"/>
+    </HBox>
+
+</VBox>

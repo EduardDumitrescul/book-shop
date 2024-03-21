@@ -33,8 +33,11 @@ public abstract class Repository<T extends BaseEntity> {
     }
 
     public void update(T entity) {
-        int index = entities.indexOf(entity);
-        entities.set(index, (T) entity.clone());
+        for(int i = 0; i < entities.size(); i ++) {
+            if(entities.get(i).id == entity.id) {
+                entities.set(i, (T) entity.clone());
+            }
+        }
     }
 
     public void delete(T entity) {

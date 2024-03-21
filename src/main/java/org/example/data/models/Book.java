@@ -23,7 +23,7 @@ public class Book extends Item implements Cloneable {
         this.numberOfPagesRead = obj.numberOfPagesRead;
     }
 
-    void read() throws Exception {
+    public void read() throws Exception {
         if(numberOfPagesRead >= numberOfPages) {
             throw new Exception("You've already read this book");
         }

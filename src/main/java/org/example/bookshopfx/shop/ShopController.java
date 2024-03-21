@@ -33,7 +33,7 @@ public class ShopController implements UpdateShopCallback {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().showScreen("home", List.of());
+        NavigationController.getInstance().navigateBack();
     }
 }
 

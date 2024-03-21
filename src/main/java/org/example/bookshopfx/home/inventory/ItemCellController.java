@@ -3,8 +3,11 @@ package org.example.bookshopfx.home.inventory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.*;
 import org.example.services.ItemService;
+
+import java.util.List;
 
 public class ItemCellController {
 
@@ -28,8 +31,9 @@ public class ItemCellController {
 
     public void viewItem(ActionEvent actionEvent) {
         Item item = model.getItem();
+        List<String> args = List.of(String.valueOf(item.getId()));
         if(item instanceof Book) {
-
+            NavigationController.getInstance().showScreen("view-book", args);
         }
         else if(item instanceof ColoringBook) {
 

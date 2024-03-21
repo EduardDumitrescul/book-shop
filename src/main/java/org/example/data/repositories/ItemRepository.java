@@ -1,6 +1,7 @@
 package org.example.data.repositories;
 
 import org.example.data.entities.ItemEntity;
+import org.example.data.models.Item;
 import org.example.utils.ObjectCloningUtil;
 
 import java.util.ArrayList;
@@ -9,6 +10,14 @@ import java.util.List;
 public class ItemRepository {
     private List<ItemEntity> items = new ArrayList<>();
 
+
+    public void update(ItemEntity item) {
+        for(ItemEntity entity: items) {
+            if(entity.id == item.id) {
+                entity = item.clone();
+            }
+        }
+    }
     public List<ItemEntity> getById(List<Integer> ids) {
         List<ItemEntity> list = new ArrayList<>();
         for(ItemEntity entity: items) {

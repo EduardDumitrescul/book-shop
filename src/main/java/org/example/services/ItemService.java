@@ -67,6 +67,15 @@ public class ItemService {
         return id;
     }
 
+    public void updateItem(Item item) {
+        ItemEntity itemEntity = ItemMapper.asEntity(item);
+        if(item instanceof Book) {
+            BookEntity bookEntity = ItemMapper.asEntity((Book)item);
+            bookRepository.update(bookEntity);
+        }
+        itemRepository.update(itemEntity);
+    }
+
     private static ItemService instance = null;
     private ItemService() {}
 
