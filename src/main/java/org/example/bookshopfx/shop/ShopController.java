@@ -7,6 +7,8 @@ import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.InventoryItem;
 import org.example.services.ShopService;
 
+import java.util.List;
+
 public class ShopController implements UpdateShopCallback {
     private ShopModel shopModel = new ShopModel();
     private ShopService shopService = ShopService.getInstance();
@@ -31,7 +33,7 @@ public class ShopController implements UpdateShopCallback {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().showScreen("home");
+        NavigationController.getInstance().showScreen("home", List.of());
     }
 }
 

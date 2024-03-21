@@ -3,7 +3,7 @@ package org.example.bookshopfx.home.inventory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import org.example.data.models.Item;
+import org.example.data.models.*;
 import org.example.services.ItemService;
 
 public class ItemCellController {
@@ -27,6 +27,18 @@ public class ItemCellController {
     }
 
     public void viewItem(ActionEvent actionEvent) {
+        Item item = model.getItem();
+        if(item instanceof Book) {
 
+        }
+        else if(item instanceof ColoringBook) {
+
+        }
+        else if(item instanceof Notebook) {
+
+        }
+        else if(item instanceof Cookbook) {
+
+        }
     }
 }

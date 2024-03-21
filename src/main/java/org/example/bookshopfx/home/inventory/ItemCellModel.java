@@ -14,6 +14,10 @@ public class ItemCellModel {
         description.set(item.description());
     }
 
+    public Item getItem() {
+        return item;
+    }
+
     public StringProperty descriptionProperty() {
         return description;
     }

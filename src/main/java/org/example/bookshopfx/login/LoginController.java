@@ -6,6 +6,8 @@ import javafx.scene.text.Text;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.services.UserService;
 
+import java.util.List;
+
 public class LoginController {
 
     public Text helperText;
@@ -23,7 +25,7 @@ public class LoginController {
         try {
             userService.login(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showScreen("home");
+            navController.showScreen("home", List.of());
         } catch (Exception e) {
             helperText.setText(e.getMessage());
         }
@@ -36,7 +38,7 @@ public class LoginController {
         try {
             userService.register(username, password);
             NavigationController navController = NavigationController.getInstance();
-            navController.showScreen("home");
+            navController.showScreen("home", List.of());
         } catch (Exception e) {
             helperText.setText(e.getMessage());
         }

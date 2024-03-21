@@ -6,6 +6,8 @@ import javafx.scene.text.Text;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.services.UserService;
 
+import java.util.List;
+
 public class HomeController {
 
     @FXML
@@ -42,10 +44,10 @@ public class HomeController {
     }
 
     public void showInventory(ActionEvent actionEvent) {
-        NavigationController.getInstance().showScreen("inventory");
+        NavigationController.getInstance().showScreen("inventory", List.of());
     }
 
     public void showShop(ActionEvent actionEvent) {
-        NavigationController.getInstance().showScreen("shop");
+        NavigationController.getInstance().showScreen("shop", List.of());
     }
 }
