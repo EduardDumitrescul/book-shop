@@ -1,4 +1,4 @@
-package org.example.bookshopfx.home;
+package org.example.bookshopfx.home.inventory;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

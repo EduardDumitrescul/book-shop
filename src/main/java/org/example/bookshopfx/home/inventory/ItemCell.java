@@ -1,11 +1,9 @@
-package org.example.bookshopfx.shop;
+package org.example.bookshopfx.home.inventory;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import org.example.bookshopfx.HelloApplication;
-import org.example.bookshopfx.home.ItemCellController;
-import org.example.data.models.Item;
 
 import java.io.IOException;
 

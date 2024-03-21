@@ -8,7 +8,7 @@
 
 <VBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.bookshopfx.home.InventoryController"
+            fx:controller="org.example.bookshopfx.home.inventory.InventoryController"
             prefHeight="400.0" prefWidth="600.0">
     <Button text="Back" onAction="#back"/>
     <ListView fx:id="itemListView">

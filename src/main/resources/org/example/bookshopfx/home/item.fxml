@@ -8,7 +8,7 @@
 
 <HBox xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.bookshopfx.home.ItemCellController">
+            fx:controller="org.example.bookshopfx.home.inventory.ItemCellController">
     <Label fx:id="description"/>
     <Region HBox.hgrow="ALWAYS"/>
     <Button text="View" onAction="#viewItem"/>

@@ -1,10 +1,9 @@
-package org.example.bookshopfx.home;
+package org.example.bookshopfx.home.inventory;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import org.example.bookshopfx.navigation.NavigationController;
-import org.example.bookshopfx.shop.ItemCell;
 import org.example.services.UserService;
 
 public class InventoryController {

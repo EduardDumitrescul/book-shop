@@ -1,4 +1,4 @@
-package org.example.bookshopfx.home;
+package org.example.bookshopfx.home.inventory;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
