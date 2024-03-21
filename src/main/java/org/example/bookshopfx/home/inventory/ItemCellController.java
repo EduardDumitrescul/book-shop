@@ -42,7 +42,7 @@ public class ItemCellController {
 
         }
         else if(item instanceof Cookbook) {
-
+            NavigationController.getInstance().showScreen("view-cookbook", args);
         }
     }
 }

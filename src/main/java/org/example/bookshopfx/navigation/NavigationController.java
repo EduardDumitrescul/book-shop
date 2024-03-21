@@ -21,7 +21,8 @@ public class NavigationController {
             new Screen("shop", "shop/shop.fxml", List.of()),
             new Screen("inventory", "home/inventory.fxml", List.of()),
             new Screen("view-book", "item/view-book.fxml", List.of()),
-            new Screen("view-coloring-book", "item/view-coloring-book.fxml", List.of())
+            new Screen("view-coloring-book", "item/view-coloring-book.fxml", List.of()),
+            new Screen("view-cookbook", "item/view-cookbook.fxml", List.of())
     ));
 
     public void showScreen(String tag, List<String> args) {

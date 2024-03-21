@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.bookshopfx.item.ViewCookbookController">
+    <GridPane>
+        <Label text="Skill level: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text="Number of recipes: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label text="Recipes tried: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+        <Label fx:id="skill" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label fx:id="recipes" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label fx:id="recipesTried" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+    <HBox>
+        <Button text="Back" onAction="#back"/>
+        <Button text="Cook" onAction="#cook"/>
+    </HBox>
+</VBox>
