@@ -15,6 +15,7 @@ public class ShopMapper {
                 entity.location,
                 entity.itemsSold,
                 entity.dollarsReceived,
+                entity.ownerId,
                 inventory
         );
     }

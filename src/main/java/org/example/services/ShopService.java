@@ -43,12 +43,23 @@ public class ShopService {
     }
 
     public void buyItem(int shopId, int userId, int itemId) {
-        removeItemFromShopInventory(shopId, itemId);
-        addItemToUserInventory(userId, itemId);
+        try {
+            removeItemFromShopInventory(shopId, itemId);
+            addItemToUserInventory(userId, itemId);
+        } catch (Exception ignored) {
+
+        }
+
     }
     public void buyItem(int userId, int itemId) {
-        removeItemFromShopInventory(1, itemId);
-        addItemToUserInventory(userId, itemId);
+        try {
+            removeItemFromShopInventory(1, itemId);
+            addItemToUserInventory(userId, itemId);
+        }
+        catch (Exception ignored) {
+
+        }
+
     }
 
     public InventoryItem getInventoryItem(int itemId) {
@@ -67,22 +78,20 @@ public class ShopService {
 
     }
 
-    public void removeItemFromShopInventory(int shopId, int itemId) {
-        try {
-            ShopEntity shopEntity = shopRepository.getById(shopId);
-            int inventoryId = shopEntity.inventoryId;
-            InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
-            if(inventoryItemCrossRef.count  == 1) {
-                itemInventoryCrossRefRepository.delete(inventoryItemCrossRef);
-            }
-            else {
-                inventoryItemCrossRef.count -= 1;
-                itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
-            }
-        }
-        catch (Exception ignored) {
+    public void removeItemFromShopInventory(int shopId, int itemId) throws Exception {
 
+
+        ShopEntity shopEntity = shopRepository.getById(shopId);
+        int inventoryId = shopEntity.inventoryId;
+        InventoryItemCrossRef inventoryItemCrossRef = itemInventoryCrossRefRepository.getInventoryItem(inventoryId, itemId);
+        if(inventoryItemCrossRef.count <= 0) {
+            throw new Exception("item not in stock");
         }
+        inventoryItemCrossRef.count -= 1;
+        itemInventoryCrossRefRepository.update(inventoryItemCrossRef);
+
+
+
 
 
     }
@@ -112,6 +121,16 @@ public class ShopService {
     }
 
     public void addItemToShopInventory(int itemId, int shopId) {
+        addItemToShop(itemId, shopId);
+
+    }
+    public void addItemToShopInventory(int itemId) {
+        int shopId = 1;
+        addItemToShop(itemId, shopId);
+
+    }
+
+    private void addItemToShop(int itemId, int shopId) {
         ShopEntity shopEntity = shopRepository.getById(shopId);
         int inventoryId = shopEntity.inventoryId;
         if(itemExistsInInventory(inventoryId, itemId)) {
@@ -122,13 +141,20 @@ public class ShopService {
         else {
             itemInventoryCrossRefRepository.add(new InventoryItemCrossRef(inventoryId, itemId, 1));
         }
-
     }
 
     public List<Item> getAllItems() {
         List<ItemEntity> entities =  itemRepository.getAll();
         List<Item> items = entities.stream().map(ItemMapper::asItem).toList();
         return items;
+    }
+
+    public boolean isOwner(int userId) {
+        Shop shop = getShop();
+        if(shop.getOwnerId() == userId) {
+            return true;
+        }
+        return false;
     }
 
 

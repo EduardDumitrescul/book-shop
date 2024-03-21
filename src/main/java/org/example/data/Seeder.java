@@ -44,7 +44,7 @@ public class Seeder {
     ));
 
     private final static List<ShopEntity> shops = new ArrayList<>(List.of(
-            new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1)
+            new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1, 1)
     ));
 
     private static List<InventoryEntity> inventoryEntities = new ArrayList<>(List.of(

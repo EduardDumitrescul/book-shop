@@ -10,6 +10,8 @@ public class ShopEntity implements Cloneable {
 
     public int inventoryId;
 
+    public int ownerId;
+
     public ShopEntity(
             int id,
             int openingHour,
@@ -17,7 +19,8 @@ public class ShopEntity implements Cloneable {
             String location,
             int itemsSold,
             int dollarsReceived,
-            int inventoryId
+            int inventoryId,
+            int ownerId
     ) {
         this.id = id;
         this.openingHour = openingHour;
@@ -26,6 +29,7 @@ public class ShopEntity implements Cloneable {
         this.itemsSold = itemsSold;
         this.dollarsReceived = dollarsReceived;
         this.inventoryId = inventoryId;
+        this.ownerId = ownerId;
     }
 
     public ShopEntity(ShopEntity obj) {
@@ -36,6 +40,7 @@ public class ShopEntity implements Cloneable {
         this.itemsSold = obj.itemsSold;
         this.dollarsReceived = obj.dollarsReceived;
         this.inventoryId = obj.inventoryId;
+        this.ownerId = obj.ownerId;
     }
 
     @Override

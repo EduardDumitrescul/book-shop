@@ -16,5 +16,6 @@
     <Label fx:id="price" prefWidth="40"/>
     <Label fx:id="stock" prefWidth="40"/>
     <Region HBox.hgrow="ALWAYS"/>
+    <Button fx:id="restockButton" text="Restock" onAction="#restock" visible="false"/>
     <Button text="Buy" onAction="#buy"/>
 </HBox>
