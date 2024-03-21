@@ -20,7 +20,7 @@
     </GridPane>
     <HBox>
         <Button text="Back" onAction="#back"/>
-        <Button text="Read" onAction="#draw"/>
+        <Button text="Draw" onAction="#draw"/>
     </HBox>
 
 </VBox>
