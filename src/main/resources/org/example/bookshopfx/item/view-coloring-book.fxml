@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.bookshopfx.item.ViewColoringBook">
+    <GridPane>
+        <Label text="Theme: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text="Total drawings: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Label text="Drawings completed: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+        <Label fx:id="theme" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label fx:id="totalDrawings" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label fx:id="drawingsCompleted" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+    <HBox>
+        <Button text="Back" onAction="#back"/>
+        <Button text="Read" onAction="#draw"/>
+    </HBox>
+
+</VBox>

@@ -73,6 +73,10 @@ public class ItemService {
             BookEntity bookEntity = ItemMapper.asEntity((Book)item);
             bookRepository.update(bookEntity);
         }
+        else if(item instanceof ColoringBook) {
+            ColoringBookEntity coloringBook = ItemMapper.asEntity((ColoringBook) item);
+            coloringBookRepository.update(coloringBook);
+        }
         itemRepository.update(itemEntity);
     }
 

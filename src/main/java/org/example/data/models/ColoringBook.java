@@ -20,7 +20,7 @@ public class ColoringBook extends Item implements Cloneable {
         this.numberOfDrawingsCompleted = obj.numberOfDrawingsCompleted;
     }
 
-    void draw() throws Exception {
+    public void draw() throws Exception {
         if(numberOfDrawingsCompleted >= numberOfDrawings) {
             throw new Exception("You have drawn all the drawings in this drawing book");
         }

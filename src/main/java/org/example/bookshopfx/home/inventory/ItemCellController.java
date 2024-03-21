@@ -36,7 +36,7 @@ public class ItemCellController {
             NavigationController.getInstance().showScreen("view-book", args);
         }
         else if(item instanceof ColoringBook) {
-
+            NavigationController.getInstance().showScreen("view-coloring-book", args);
         }
         else if(item instanceof Notebook) {
 
