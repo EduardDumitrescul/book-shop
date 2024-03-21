@@ -50,4 +50,8 @@ public class HomeController {
     public void showShop(ActionEvent actionEvent) {
         NavigationController.getInstance().showScreen("shop", List.of());
     }
+
+    public void logout(ActionEvent actionEvent) {
+        NavigationController.getInstance().navigateBack();
+    }
 }

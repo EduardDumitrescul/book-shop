@@ -61,12 +61,14 @@ public class NavigationController {
         try {
             stage = new Stage();
             stage.setTitle("Book Shop");
-            FXMLLoader loginView = new FXMLLoader(HelloApplication.class.getResource("login/login-view.fxml"));
-            stage.setScene(new Scene(loginView.load()));
+
+            stage.setScene(new Scene(screens.get(0).loader().load()));
+            navStack.push(screens.get(0));
             stage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public static NavigationController getInstance() {
