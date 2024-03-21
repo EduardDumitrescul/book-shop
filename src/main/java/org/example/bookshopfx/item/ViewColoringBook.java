@@ -30,7 +30,7 @@ public class ViewColoringBook {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().navigateBack();
+        navigateBack();
     }
 
     public void draw(ActionEvent actionEvent) {
@@ -41,5 +41,15 @@ public class ViewColoringBook {
             model.setColoringBook((ColoringBook) itemService.getItem(coloringBook.getId()));
         } catch (Exception ignored) {
         }
+    }
+
+    private void navigateBack() {
+        NavigationController.getInstance().navigateBack();
+    }
+
+    public void throwAway(ActionEvent actionEvent) {
+        int itemId = model.getColoringBook().getId();
+        itemService.throwAwayItem(itemId);
+        navigateBack();
     }
 }

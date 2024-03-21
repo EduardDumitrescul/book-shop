@@ -29,7 +29,7 @@ public class ViewCookbookController {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().navigateBack();
+        navigateBack();
     }
 
     public void cook(ActionEvent actionEvent) {
@@ -41,5 +41,15 @@ public class ViewCookbookController {
         } catch (Exception ignored) {
 
         }
+    }
+
+    private void navigateBack() {
+        NavigationController.getInstance().navigateBack();
+    }
+
+    public void throwAway(ActionEvent actionEvent) {
+        int itemId = model.getCookbook().getId();
+        itemService.throwAwayItem(itemId);
+        navigateBack();
     }
 }

@@ -40,6 +40,14 @@ public class ItemInventoryCrossRefRepository {
         crossRefs.remove(inventoryItemCrossRef);
     }
 
+    public void deleteByItemId(int itemId) {
+        for(int i = 0; i < crossRefs.size(); i ++) {
+            if(crossRefs.get(i).itemId == itemId) {
+                crossRefs.remove(i);
+                i --;
+            }
+        }
+    }
     private ItemInventoryCrossRefRepository() {}
     private static ItemInventoryCrossRefRepository instance;
 

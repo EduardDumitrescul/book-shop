@@ -28,7 +28,7 @@ public class ViewNotebookController {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().navigateBack();
+        navigateBack();
     }
 
     public void write(ActionEvent actionEvent) {
@@ -41,5 +41,15 @@ public class ViewNotebookController {
 
         }
 
+    }
+
+    private void navigateBack() {
+        NavigationController.getInstance().navigateBack();
+    }
+
+    public void throwAway(ActionEvent actionEvent) {
+        int itemId = model.getNotebook().getId();
+        itemService.throwAwayItem(itemId);
+        navigateBack();
     }
 }

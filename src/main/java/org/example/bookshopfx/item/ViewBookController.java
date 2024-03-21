@@ -37,7 +37,7 @@ public class ViewBookController {
     }
 
     public void back(ActionEvent actionEvent) {
-        NavigationController.getInstance().navigateBack();
+        navigateBack();
     }
 
     public void read(ActionEvent actionEvent) {
@@ -48,5 +48,15 @@ public class ViewBookController {
             model.setBook((Book) itemService.getItem(book.getId()));
         } catch (Exception ignored) {
         }
+    }
+
+    private void navigateBack() {
+        NavigationController.getInstance().navigateBack();
+    }
+
+    public void throwAway(ActionEvent actionEvent) {
+        int itemId = model.getBook().getId();
+        itemService.throwAwayItem(itemId);
+        navigateBack();
     }
 }

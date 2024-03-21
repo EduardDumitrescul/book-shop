@@ -13,6 +13,7 @@ public class ItemService {
 
     private CookbookRepository cookbookRepository = CookbookRepository.getInstance();
 
+    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
     public Item getItem(int id) {
         ItemEntity itemEntity = itemRepository.getById(id);
         Item item;
@@ -86,6 +87,16 @@ public class ItemService {
             notebookRepository.update(notebookEntity);
         }
         itemRepository.update(itemEntity);
+    }
+
+    public void throwAwayItem(int itemId) {
+        itemInventoryCrossRefRepository.deleteByItemId(itemId);
+
+        itemRepository.delete(itemId);
+        bookRepository.delete(itemId);
+        cookbookRepository.delete(itemId);
+        coloringBookRepository.delete(itemId);
+        notebookRepository.delete(itemId);
     }
 
     private static ItemService instance = null;

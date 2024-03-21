@@ -44,6 +44,15 @@ public abstract class Repository<T extends BaseEntity> {
         entities.remove(entity);
     }
 
+    public void delete(int id) {
+        for(int i = 0; i < entities.size(); i ++) {
+            if(entities.get(i).id == id) {
+                entities.remove(i);
+                i --;
+            }
+        }
+    }
+
 //    private static int idCount = 0;
 //    private void generateId(T entity) {
 //        idCount ++;

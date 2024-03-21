@@ -24,6 +24,7 @@
     <HBox>
         <Button text="Back" onAction="#back"/>
         <Button text="Read" onAction="#read"/>
+        <Button text="Throw Away" onAction="#throwAway"/>
     </HBox>
 
 </VBox>

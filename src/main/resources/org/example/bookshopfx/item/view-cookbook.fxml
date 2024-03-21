@@ -21,5 +21,6 @@
     <HBox>
         <Button text="Back" onAction="#back"/>
         <Button text="Cook" onAction="#cook"/>
+        <Button text="Throw Away" onAction="#throwAway"/>
     </HBox>
 </VBox>

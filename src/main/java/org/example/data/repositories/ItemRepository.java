@@ -48,6 +48,23 @@ public class ItemRepository {
         return item.id;
     }
 
+    public void delete(ItemEntity entity) {
+        for(int i = 0; i < items.size(); i ++) {
+            if(items.get(i).id == entity.id) {
+                items.remove(i);
+                return;
+            }
+        }
+    }
+    public void delete(int id) {
+        for(int i = 0; i < items.size(); i ++) {
+            if(items.get(i).id == id) {
+                items.remove(i);
+                return;
+            }
+        }
+    }
+
     private static int idCount = 0;
     private void generateId(ItemEntity entity) {
         idCount ++;
