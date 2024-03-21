@@ -39,7 +39,7 @@ public class ItemCellController {
             NavigationController.getInstance().showScreen("view-coloring-book", args);
         }
         else if(item instanceof Notebook) {
-
+            NavigationController.getInstance().showScreen("view-notebook", args);
         }
         else if(item instanceof Cookbook) {
             NavigationController.getInstance().showScreen("view-cookbook", args);

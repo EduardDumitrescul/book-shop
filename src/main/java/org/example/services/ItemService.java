@@ -81,6 +81,10 @@ public class ItemService {
             CookbookEntity cookbookEntity = ItemMapper.asEntity((Cookbook) item);
             cookbookRepository.update(cookbookEntity);
         }
+        else if(item instanceof Notebook) {
+            NotebookEntity notebookEntity = ItemMapper.asEntity((Notebook) item);
+            notebookRepository.update(notebookEntity);
+        }
         itemRepository.update(itemEntity);
     }
 
