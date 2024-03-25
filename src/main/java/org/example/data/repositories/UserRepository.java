@@ -4,17 +4,19 @@ import org.example.data.entities.UserEntity;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class UserRepository {
     private static UserRepository instance = null;
     private static int idCount = 0;
-    private ArrayList <UserEntity> users = new ArrayList<>();
+    private SortedMap<String, UserEntity> users = new TreeMap<>();
 
     private UserRepository() {}
 
 
     public UserEntity getUser(int id) {
-        for(UserEntity entity: users) {
+        for(UserEntity entity: users.values()) {
             if(entity.id == id) {
                 return entity.clone();
             }
@@ -23,27 +25,20 @@ public class UserRepository {
     }
 
     public boolean usernameExists(String username) {
-        for(UserEntity user: users) {
-            if(Objects.equals(user.username, username)) {
-                return true;
-            }
-        }
-        return false;
+        return users.containsKey(username);
     }
 
 
     public int add(UserEntity user) {
         generateId(user);
-        users.add(user);
+        users.put(user.username, user);
         return user.id;
     }
 
 
     public UserEntity findUserByUsername(String username) {
-        for(UserEntity user: users) {
-            if(Objects.equals(user.username, username)) {
-                return user;
-            }
+        if(users.containsKey(username)) {
+            return users.get(username);
         }
         return null;
     }
