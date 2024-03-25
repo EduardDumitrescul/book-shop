@@ -11,16 +11,16 @@ It is an app that :
 1. System definition
 - [x] create a list based on the chosen theme with at least 10 actions/queries (Example actions: update personal data,
 card creation, balance inquiry, bank transfer, ...) that can be done within the system
-   - [ ] register new user
-   - [ ] login existing user
-   - [ ] view shop inventory
-   - [ ] restock shop's inventory
-   - [ ] buy item from shop
-   - [ ] view item details
-   - [ ] view user inventory
-   - [ ] use owned item
-   - [ ] throw away item
-   - [ ] view shop statistics
+   - [x] register new user
+   - [x] login existing user
+   - [x] logout 
+   - [x] view shop inventory
+   - [x] restock shop's inventory (for shop owner)
+   - [x] buy item from shop
+   - [x] view item details
+   - [x] view user inventory
+   - [x] use owned item (e.g. read book, write in notebook)
+   - [x] throw away item
 - [x] create a list ([models documentation](documentation/models.md)) of the
 at least 8 types of objects (Example entities: user, account, debit account, savings account, transaction, ...)
     - Shop
@@ -38,10 +38,10 @@ at least 8 types of objects (Example entities: user, account, debit account, sav
 Implement in the Java language an application based on those defined in the first point.
 
 The application will contain:
-- [ ] simple classes with private / protected attributes and access methods
-- [ ] at least 2 different collections capable of managing previously defined objects (eg: List, Set, Map, etc.), least one of which should be sorted
-- [ ] use inheritance to create additional classes and use them within collections;
-- [ ] at least one service class to expose system operations
+- [x] simple classes with private / protected attributes and access methods
+- [x] at least 2 different collections capable of managing previously defined objects (eg: List, Set, Map, etc.), least one of which should be sorted
+- [x] use inheritance to create additional classes and use them within collections;
+- [x] at least one service class to expose system operations
 - [ ] a Main class from which calls to services are made
 
 ### Stage II (deadline: 27th of May 2024)
