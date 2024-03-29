@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.data.RepositoryProvider;
 import org.example.data.entities.InventoryEntity;
 import org.example.data.entities.InventoryItemCrossRef;
 import org.example.data.entities.ItemEntity;
@@ -8,9 +9,9 @@ import org.example.data.models.Item;
 import org.example.data.models.User;
 import org.example.data.models.UserInventory;
 import org.example.data.local.LocalInventoryRepository;
-import org.example.data.local.LocalItemInventoryCrossRefRepository;
 import org.example.data.local.LocalItemRepository;
 import org.example.data.local.LocalUserRepository;
+import org.example.data.repositories.ItemInventoryCrossRefRepository;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class UserService {
     private ItemService itemService = ItemService.getInstance();
     private LocalUserRepository userRepository = LocalUserRepository.getInstance();
     private LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
-    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
+    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
 
     private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
 

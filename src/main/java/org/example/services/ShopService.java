@@ -10,6 +10,7 @@ import org.example.data.models.Item;
 import org.example.data.models.Shop;
 import org.example.data.models.ShopInventory;
 import org.example.data.repositories.InventoryRepository;
+import org.example.data.repositories.ItemInventoryCrossRefRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class ShopService {
     private ItemService itemService = ItemService.getInstance();
     private LocalShopRepository shopRepository = LocalShopRepository.getInstance();
     private InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
-    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
+    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
     private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
 
     private LocalUserRepository userRepository = LocalUserRepository.getInstance();

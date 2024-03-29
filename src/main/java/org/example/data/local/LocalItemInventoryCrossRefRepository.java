@@ -1,11 +1,12 @@
 package org.example.data.local;
 
 import org.example.data.entities.InventoryItemCrossRef;
+import org.example.data.repositories.ItemInventoryCrossRefRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalItemInventoryCrossRefRepository {
+public class LocalItemInventoryCrossRefRepository implements ItemInventoryCrossRefRepository {
     private List<InventoryItemCrossRef> crossRefs = new ArrayList<>();
 
     public InventoryItemCrossRef getInventoryItem(int inventoryId, int itemId) {
@@ -34,10 +35,6 @@ public class LocalItemInventoryCrossRefRepository {
 
     public void add(InventoryItemCrossRef inventoryItemCrossRef) {
         crossRefs.add(new InventoryItemCrossRef(inventoryItemCrossRef));
-    }
-
-    public void delete(InventoryItemCrossRef inventoryItemCrossRef) {
-        crossRefs.remove(inventoryItemCrossRef);
     }
 
     public void deleteByItemId(int itemId) {

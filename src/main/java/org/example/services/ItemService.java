@@ -5,6 +5,7 @@ import org.example.data.entities.*;
 import org.example.data.local.*;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.*;
+import org.example.data.repositories.ItemInventoryCrossRefRepository;
 import org.example.data.repositories.Repository;
 
 public class ItemService {
@@ -14,7 +15,7 @@ public class ItemService {
     private Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
     private Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
 
-    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
+    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
     public Item getItem(int id) {
         ItemEntity itemEntity = itemRepository.getById(id);
         Item item;
