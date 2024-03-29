@@ -1,12 +1,13 @@
 package org.example.data.repositories;
 
 import org.example.data.entities.UserEntity;
+import org.example.data.local.LocalUserRepository;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UserRepositoryTest {
-    UserRepository userRepository = UserRepository.getInstance();
+    LocalUserRepository userRepository = LocalUserRepository.getInstance();
 
     @Test
     public void checkUsernameExists() {

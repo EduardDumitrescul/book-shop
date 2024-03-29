@@ -1,11 +1,11 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.InventoryItemCrossRef;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemInventoryCrossRefRepository {
+public class LocalItemInventoryCrossRefRepository {
     private List<InventoryItemCrossRef> crossRefs = new ArrayList<>();
 
     public InventoryItemCrossRef getInventoryItem(int inventoryId, int itemId) {
@@ -48,12 +48,12 @@ public class ItemInventoryCrossRefRepository {
             }
         }
     }
-    private ItemInventoryCrossRefRepository() {}
-    private static ItemInventoryCrossRefRepository instance;
+    private LocalItemInventoryCrossRefRepository() {}
+    private static LocalItemInventoryCrossRefRepository instance;
 
-    public static ItemInventoryCrossRefRepository getInstance() {
+    public static LocalItemInventoryCrossRefRepository getInstance() {
         if(instance == null) {
-            instance = new ItemInventoryCrossRefRepository();
+            instance = new LocalItemInventoryCrossRefRepository();
         }
         return instance;
     }

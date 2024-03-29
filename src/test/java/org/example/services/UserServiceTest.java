@@ -2,15 +2,15 @@ package org.example.services;
 
 import org.example.data.Seeder;
 import org.example.data.entities.UserEntity;
+import org.example.data.local.LocalUserRepository;
 import org.example.data.models.User;
-import org.example.data.repositories.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
-    private UserRepository userRepository = UserRepository.getInstance();
+    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
     private UserService userService = UserService.getInstance();
 
     private String mockUsername = "account service test username";

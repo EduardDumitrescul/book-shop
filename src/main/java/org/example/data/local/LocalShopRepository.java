@@ -1,11 +1,11 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.ShopEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopRepository {
+public class LocalShopRepository {
     private List<ShopEntity> shops = new ArrayList<>();
 
 
@@ -32,13 +32,13 @@ public class ShopRepository {
         shop.id = idCount;
     }
 
-    private ShopRepository() {}
+    private LocalShopRepository() {}
 
-    private static ShopRepository instance;
+    private static LocalShopRepository instance;
 
-    public static  ShopRepository getInstance() {
+    public static LocalShopRepository getInstance() {
         if(instance == null) {
-            instance = new ShopRepository();
+            instance = new LocalShopRepository();
         }
         return instance;
     }

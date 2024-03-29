@@ -1,13 +1,12 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.ItemEntity;
-import org.example.data.models.Item;
 import org.example.utils.ObjectCloningUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemRepository {
+public class LocalItemRepository {
     private List<ItemEntity> items = new ArrayList<>();
 
 
@@ -71,13 +70,13 @@ public class ItemRepository {
         entity.id = idCount;
     }
 
-    private static ItemRepository instance = null;
+    private static LocalItemRepository instance = null;
 
-    private ItemRepository() {}
+    private LocalItemRepository() {}
 
-    public static ItemRepository getInstance()   {
+    public static LocalItemRepository getInstance()   {
         if(instance == null) {
-            instance = new ItemRepository();
+            instance = new LocalItemRepository();
         }
         return instance;
     }

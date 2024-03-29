@@ -1,18 +1,16 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.UserEntity;
 
-import java.util.ArrayList;
-import java.util.Objects;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class UserRepository {
-    private static UserRepository instance = null;
+public class LocalUserRepository {
+    private static LocalUserRepository instance = null;
     private static int idCount = 0;
     private SortedMap<String, UserEntity> users = new TreeMap<>();
 
-    private UserRepository() {}
+    private LocalUserRepository() {}
 
 
     public UserEntity getUser(int id) {
@@ -48,9 +46,9 @@ public class UserRepository {
         user.setId(idCount);
     }
 
-    public static UserRepository getInstance() {
+    public static LocalUserRepository getInstance() {
         if(instance == null) {
-            instance = new UserRepository();
+            instance = new LocalUserRepository();
         }
         return instance;
     }

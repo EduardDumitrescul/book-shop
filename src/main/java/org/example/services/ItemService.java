@@ -1,19 +1,19 @@
 package org.example.services;
 
 import org.example.data.entities.*;
+import org.example.data.local.*;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.*;
-import org.example.data.repositories.*;
 
 public class ItemService {
-    private ItemRepository itemRepository = ItemRepository.getInstance();
-    private BookRepository bookRepository = BookRepository.getInstance();
-    private ColoringBookRepository coloringBookRepository = ColoringBookRepository.getInstance();
-    private NotebookRepository notebookRepository = NotebookRepository.getInstance();
+    private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
+    private LocalBookRepository bookRepository = LocalBookRepository.getInstance();
+    private LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
+    private LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
 
-    private CookbookRepository cookbookRepository = CookbookRepository.getInstance();
+    private LocalCookbookRepository cookbookRepository = LocalCookbookRepository.getInstance();
 
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
+    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
     public Item getItem(int id) {
         ItemEntity itemEntity = itemRepository.getById(id);
         Item item;

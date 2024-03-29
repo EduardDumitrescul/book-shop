@@ -1,11 +1,11 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.InventoryEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InventoryRepository {
+public class LocalInventoryRepository {
     private List<InventoryEntity> inventories = new ArrayList<>();
 
     public int add(InventoryEntity entity) {
@@ -31,13 +31,13 @@ public class InventoryRepository {
     }
 
 
-    private InventoryRepository() {}
+    private LocalInventoryRepository() {}
 
-    private static InventoryRepository instance = null;
+    private static LocalInventoryRepository instance = null;
 
-    public static InventoryRepository getInstance() {
+    public static LocalInventoryRepository getInstance() {
         if(instance == null) {
-            instance = new InventoryRepository();
+            instance = new LocalInventoryRepository();
         }
         return instance;
     }

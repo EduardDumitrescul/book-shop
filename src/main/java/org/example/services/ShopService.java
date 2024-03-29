@@ -1,13 +1,13 @@
 package org.example.services;
 
 import org.example.data.entities.*;
+import org.example.data.local.*;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.mappers.ShopMapper;
 import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
 import org.example.data.models.Shop;
 import org.example.data.models.ShopInventory;
-import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +15,12 @@ import java.util.List;
 public class ShopService {
 
     private ItemService itemService = ItemService.getInstance();
-    private ShopRepository shopRepository = ShopRepository.getInstance();
-    private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
-    private ItemRepository itemRepository = ItemRepository.getInstance();
+    private LocalShopRepository shopRepository = LocalShopRepository.getInstance();
+    private LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
+    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
+    private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
 
-    private UserRepository userRepository = UserRepository.getInstance();
+    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
 
     public List<InventoryItem> getItemsByInventoryId(int inventoryId) {
         try {

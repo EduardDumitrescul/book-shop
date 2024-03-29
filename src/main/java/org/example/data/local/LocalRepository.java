@@ -1,11 +1,11 @@
-package org.example.data.repositories;
+package org.example.data.local;
 
 import org.example.data.entities.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Repository<T extends BaseEntity> {
+public abstract class LocalRepository<T extends BaseEntity> {
     private List<T> entities = new ArrayList<>();
 
     public int add(T entity) {
@@ -58,9 +58,9 @@ public abstract class Repository<T extends BaseEntity> {
 //        idCount ++;
 //        entity.id = idCount;
 //    }
-    protected Repository() {}
+    protected LocalRepository() {}
 
-    public static Repository getInstance() {
+    public static LocalRepository getInstance() {
         return null;
     }
 }

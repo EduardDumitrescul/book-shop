@@ -4,24 +4,23 @@ import org.example.data.entities.InventoryEntity;
 import org.example.data.entities.InventoryItemCrossRef;
 import org.example.data.entities.ItemEntity;
 import org.example.data.entities.UserEntity;
-import org.example.data.mappers.ItemMapper;
 import org.example.data.models.Item;
 import org.example.data.models.User;
 import org.example.data.models.UserInventory;
-import org.example.data.repositories.InventoryRepository;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.UserRepository;
+import org.example.data.local.LocalInventoryRepository;
+import org.example.data.local.LocalItemInventoryCrossRefRepository;
+import org.example.data.local.LocalItemRepository;
+import org.example.data.local.LocalUserRepository;
 
 import java.util.List;
 
 public class UserService {
     private ItemService itemService = ItemService.getInstance();
-    private UserRepository userRepository = UserRepository.getInstance();
-    private InventoryRepository inventoryRepository = InventoryRepository.getInstance();
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
+    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
+    private LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
+    private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
 
-    private ItemRepository itemRepository = ItemRepository.getInstance();
+    private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
 
     private User currentUser = null;
     private UserService() {}

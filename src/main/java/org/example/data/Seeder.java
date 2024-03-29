@@ -1,22 +1,22 @@
 package org.example.data;
 
 import org.example.data.entities.*;
-import org.example.data.repositories.*;
+import org.example.data.local.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Seeder {
-    private static ItemRepository itemRepository = ItemRepository.getInstance();
-    private static BookRepository bookRepository = BookRepository.getInstance();
-    private static ColoringBookRepository coloringBookRepository = ColoringBookRepository.getInstance();
-    private static NotebookRepository notebookRepository = NotebookRepository.getInstance();
+    private static LocalItemRepository itemRepository = LocalItemRepository.getInstance();
+    private static LocalBookRepository bookRepository = LocalBookRepository.getInstance();
+    private static LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
+    private static LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
 
-    private static CookbookRepository cookbookRepository = CookbookRepository.getInstance();
-    private static ShopRepository shopRepository = ShopRepository.getInstance();
-    private static InventoryRepository inventoryRepository = InventoryRepository.getInstance();
-    private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = ItemInventoryCrossRefRepository.getInstance();
-    private static UserRepository userRepository = UserRepository.getInstance();
+    private static LocalCookbookRepository cookbookRepository = LocalCookbookRepository.getInstance();
+    private static LocalShopRepository shopRepository = LocalShopRepository.getInstance();
+    private static LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
+    private static LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
+    private static LocalUserRepository userRepository = LocalUserRepository.getInstance();
 
     private static List<UserEntity> users = new ArrayList<>(List.of(
             new UserEntity(0, "owner", "owner", 2),
