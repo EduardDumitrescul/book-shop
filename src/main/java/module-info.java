@@ -8,6 +8,8 @@ module org.example.bookshopfx {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires java.sql;
+    requires mysql.connector;
 
     opens org.example.bookshopfx to javafx.fxml;
     opens org.example.bookshopfx.login to javafx.fxml;
