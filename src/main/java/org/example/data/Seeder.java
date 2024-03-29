@@ -2,13 +2,14 @@ package org.example.data;
 
 import org.example.data.entities.*;
 import org.example.data.local.*;
+import org.example.data.repositories.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Seeder {
     private static LocalItemRepository itemRepository = LocalItemRepository.getInstance();
-    private static LocalBookRepository bookRepository = LocalBookRepository.getInstance();
+    private static Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
     private static LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
     private static LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
 

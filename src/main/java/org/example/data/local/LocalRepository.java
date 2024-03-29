@@ -1,11 +1,12 @@
 package org.example.data.local;
 
 import org.example.data.entities.BaseEntity;
+import org.example.data.repositories.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class LocalRepository<T extends BaseEntity> {
+public abstract class LocalRepository<T extends BaseEntity> implements Repository<T> {
     private List<T> entities = new ArrayList<>();
 
     public int add(T entity) {
@@ -38,10 +39,6 @@ public abstract class LocalRepository<T extends BaseEntity> {
                 entities.set(i, (T) entity.clone());
             }
         }
-    }
-
-    public void delete(T entity) {
-        entities.remove(entity);
     }
 
     public void delete(int id) {

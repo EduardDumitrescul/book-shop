@@ -1,13 +1,15 @@
 package org.example.services;
 
+import org.example.data.RepositoryProvider;
 import org.example.data.entities.*;
 import org.example.data.local.*;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.*;
+import org.example.data.repositories.Repository;
 
 public class ItemService {
     private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
-    private LocalBookRepository bookRepository = LocalBookRepository.getInstance();
+    private Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
     private LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
     private LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
 
