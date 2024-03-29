@@ -12,9 +12,9 @@ public class LocalItemRepository implements ItemRepository {
 
 
     public void update(ItemEntity item) {
-        for(ItemEntity entity: items) {
-            if(entity.id == item.id) {
-                entity = item.clone();
+        for(int i = 0; i < items.size(); i ++) {
+            if(items.get(i).id == item.id) {
+                items.set(i, item.clone());
             }
         }
     }
@@ -22,7 +22,7 @@ public class LocalItemRepository implements ItemRepository {
         List<ItemEntity> list = new ArrayList<>();
         for(ItemEntity entity: items) {
             if(ids.contains(entity.getId())) {
-                list.add(new ItemEntity(entity));
+                list.add(entity.clone());
             }
         }
         return list;
