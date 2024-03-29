@@ -1,12 +1,13 @@
 package org.example.data.local;
 
 import org.example.data.entities.ItemEntity;
+import org.example.data.repositories.ItemRepository;
 import org.example.utils.ObjectCloningUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalItemRepository {
+public class LocalItemRepository implements ItemRepository {
     private List<ItemEntity> items = new ArrayList<>();
 
 
@@ -45,15 +46,6 @@ public class LocalItemRepository {
         generateId(item);
         items.add(item);
         return item.id;
-    }
-
-    public void delete(ItemEntity entity) {
-        for(int i = 0; i < items.size(); i ++) {
-            if(items.get(i).id == entity.id) {
-                items.remove(i);
-                return;
-            }
-        }
     }
     public void delete(int id) {
         for(int i = 0; i < items.size(); i ++) {

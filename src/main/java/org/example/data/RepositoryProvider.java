@@ -8,6 +8,7 @@ import org.example.data.entities.NotebookEntity;
 import org.example.data.local.*;
 import org.example.data.repositories.InventoryRepository;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
+import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.Repository;
 
 public class RepositoryProvider {
@@ -35,5 +36,9 @@ public class RepositoryProvider {
 
     public static ItemInventoryCrossRefRepository provideItemInventoryCrossRefRepository() {
         return LocalItemInventoryCrossRefRepository.getInstance();
+    }
+
+    public static ItemRepository provideItemRepository() {
+        return LocalItemRepository.getInstance();
     }
 }

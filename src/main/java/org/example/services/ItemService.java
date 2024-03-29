@@ -6,10 +6,11 @@ import org.example.data.local.*;
 import org.example.data.mappers.ItemMapper;
 import org.example.data.models.*;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
+import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.Repository;
 
 public class ItemService {
-    private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
+    private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
     private Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
     private Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
     private Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
