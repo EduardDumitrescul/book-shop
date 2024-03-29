@@ -1,11 +1,12 @@
 package org.example.data.local;
 
 import org.example.data.entities.UserEntity;
+import org.example.data.repositories.UserRepository;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class LocalUserRepository {
+public class LocalUserRepository implements UserRepository {
     private static LocalUserRepository instance = null;
     private static int idCount = 0;
     private SortedMap<String, UserEntity> users = new TreeMap<>();
@@ -34,7 +35,7 @@ public class LocalUserRepository {
     }
 
 
-    public UserEntity findUserByUsername(String username) {
+    public UserEntity getByUsername(String username) {
         if(users.containsKey(username)) {
             return users.get(username);
         }

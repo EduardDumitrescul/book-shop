@@ -9,10 +9,7 @@ import org.example.data.models.InventoryItem;
 import org.example.data.models.Item;
 import org.example.data.models.Shop;
 import org.example.data.models.ShopInventory;
-import org.example.data.repositories.InventoryRepository;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.ShopRepository;
+import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +21,7 @@ public class ShopService {
     private InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
     private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
-    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
+    private UserRepository userRepository = RepositoryProvider.provideUserRepository();
 
     public List<InventoryItem> getItemsByInventoryId(int inventoryId) {
         try {

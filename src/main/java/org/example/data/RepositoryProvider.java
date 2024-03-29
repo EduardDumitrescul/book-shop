@@ -39,4 +39,8 @@ public class RepositoryProvider {
     public static ShopRepository provideShopRepository() {
         return LocalShopRepository.getInstance();
     }
+
+    public static UserRepository provideUserRepository() {
+        return LocalUserRepository.getInstance();
+    }
 }

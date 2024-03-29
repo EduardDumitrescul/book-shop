@@ -17,7 +17,7 @@ public class Seeder {
     private static ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
     private static InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
-    private static LocalUserRepository userRepository = LocalUserRepository.getInstance();
+    private static UserRepository userRepository = RepositoryProvider.provideUserRepository();
 
     private static List<UserEntity> users = new ArrayList<>(List.of(
             new UserEntity(0, "owner", "owner", 2),

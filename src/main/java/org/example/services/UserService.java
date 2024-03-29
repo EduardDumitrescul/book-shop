@@ -9,16 +9,16 @@ import org.example.data.models.Item;
 import org.example.data.models.User;
 import org.example.data.models.UserInventory;
 import org.example.data.local.LocalInventoryRepository;
-import org.example.data.local.LocalItemRepository;
 import org.example.data.local.LocalUserRepository;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
 import org.example.data.repositories.ItemRepository;
+import org.example.data.repositories.UserRepository;
 
 import java.util.List;
 
 public class UserService {
     private ItemService itemService = ItemService.getInstance();
-    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
+    private UserRepository userRepository = RepositoryProvider.provideUserRepository();
     private LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
 
@@ -73,7 +73,7 @@ public class UserService {
     }
 
     public boolean passwordIsCorrect(String username, String password) {
-        UserEntity entity = userRepository.findUserByUsername(username);
+        UserEntity entity = userRepository.getByUsername(username);
         return entity.password.equals(password);
     }
 
@@ -84,7 +84,7 @@ public class UserService {
         if(!passwordIsCorrect(username, password)) {
             throw new Exception("Password is incorrect!");
         }
-        UserEntity entity  = userRepository.findUserByUsername(username);
+        UserEntity entity  = userRepository.getByUsername(username);
         currentUser = getUserById(entity.id);
     }
 
