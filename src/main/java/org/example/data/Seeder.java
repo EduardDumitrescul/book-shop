@@ -2,10 +2,7 @@ package org.example.data;
 
 import org.example.data.entities.*;
 import org.example.data.local.*;
-import org.example.data.repositories.InventoryRepository;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.Repository;
+import org.example.data.repositories.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +14,7 @@ public class Seeder {
     private static Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
 
     private static Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
-    private static LocalShopRepository shopRepository = LocalShopRepository.getInstance();
+    private static ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
     private static InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
     private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
     private static LocalUserRepository userRepository = LocalUserRepository.getInstance();

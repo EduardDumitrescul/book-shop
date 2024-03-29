@@ -1,15 +1,9 @@
 package org.example.data;
 
 import javafx.scene.paint.Color;
-import org.example.data.entities.BookEntity;
-import org.example.data.entities.ColoringBookEntity;
-import org.example.data.entities.CookbookEntity;
-import org.example.data.entities.NotebookEntity;
+import org.example.data.entities.*;
 import org.example.data.local.*;
-import org.example.data.repositories.InventoryRepository;
-import org.example.data.repositories.ItemInventoryCrossRefRepository;
-import org.example.data.repositories.ItemRepository;
-import org.example.data.repositories.Repository;
+import org.example.data.repositories.*;
 
 public class RepositoryProvider {
     private RepositoryProvider() {}
@@ -40,5 +34,9 @@ public class RepositoryProvider {
 
     public static ItemRepository provideItemRepository() {
         return LocalItemRepository.getInstance();
+    }
+
+    public static ShopRepository provideShopRepository() {
+        return LocalShopRepository.getInstance();
     }
 }

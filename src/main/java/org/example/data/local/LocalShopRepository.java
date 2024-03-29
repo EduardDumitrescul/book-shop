@@ -1,11 +1,12 @@
 package org.example.data.local;
 
 import org.example.data.entities.ShopEntity;
+import org.example.data.repositories.ShopRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalShopRepository {
+public class LocalShopRepository implements ShopRepository {
     private List<ShopEntity> shops = new ArrayList<>();
 
 
