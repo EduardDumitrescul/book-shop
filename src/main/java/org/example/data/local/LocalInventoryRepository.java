@@ -1,11 +1,12 @@
 package org.example.data.local;
 
 import org.example.data.entities.InventoryEntity;
+import org.example.data.repositories.InventoryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalInventoryRepository {
+public class LocalInventoryRepository implements InventoryRepository {
     private List<InventoryEntity> inventories = new ArrayList<>();
 
     public int add(InventoryEntity entity) {

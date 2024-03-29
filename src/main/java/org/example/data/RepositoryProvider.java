@@ -5,10 +5,8 @@ import org.example.data.entities.BookEntity;
 import org.example.data.entities.ColoringBookEntity;
 import org.example.data.entities.CookbookEntity;
 import org.example.data.entities.NotebookEntity;
-import org.example.data.local.LocalBookRepository;
-import org.example.data.local.LocalColoringBookRepository;
-import org.example.data.local.LocalCookbookRepository;
-import org.example.data.local.LocalNotebookRepository;
+import org.example.data.local.*;
+import org.example.data.repositories.InventoryRepository;
 import org.example.data.repositories.Repository;
 
 public class RepositoryProvider {
@@ -28,5 +26,9 @@ public class RepositoryProvider {
 
     public static Repository<CookbookEntity> provideCookbookRepository() {
         return LocalCookbookRepository.getInstance();
+    }
+
+    public static InventoryRepository provideInventoryRepository() {
+        return LocalInventoryRepository.getInstance();
     }
 }
