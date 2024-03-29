@@ -10,10 +10,10 @@ import java.util.List;
 public class Seeder {
     private static LocalItemRepository itemRepository = LocalItemRepository.getInstance();
     private static Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
-    private static LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
-    private static LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
+    private static Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
+    private static Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
 
-    private static LocalCookbookRepository cookbookRepository = LocalCookbookRepository.getInstance();
+    private static Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
     private static LocalShopRepository shopRepository = LocalShopRepository.getInstance();
     private static LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
     private static LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();

@@ -10,10 +10,9 @@ import org.example.data.repositories.Repository;
 public class ItemService {
     private LocalItemRepository itemRepository = LocalItemRepository.getInstance();
     private Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
-    private LocalColoringBookRepository coloringBookRepository = LocalColoringBookRepository.getInstance();
-    private LocalNotebookRepository notebookRepository = LocalNotebookRepository.getInstance();
-
-    private LocalCookbookRepository cookbookRepository = LocalCookbookRepository.getInstance();
+    private Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
+    private Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
+    private Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
 
     private LocalItemInventoryCrossRefRepository itemInventoryCrossRefRepository = LocalItemInventoryCrossRefRepository.getInstance();
     public Item getItem(int id) {

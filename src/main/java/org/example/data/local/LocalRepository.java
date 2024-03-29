@@ -50,11 +50,6 @@ public abstract class LocalRepository<T extends BaseEntity> implements Repositor
         }
     }
 
-//    private static int idCount = 0;
-//    private void generateId(T entity) {
-//        idCount ++;
-//        entity.id = idCount;
-//    }
     protected LocalRepository() {}
 
     public static LocalRepository getInstance() {
