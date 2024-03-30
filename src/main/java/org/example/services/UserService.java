@@ -10,6 +10,7 @@ import org.example.data.models.User;
 import org.example.data.models.UserInventory;
 import org.example.data.local.LocalInventoryRepository;
 import org.example.data.local.LocalUserRepository;
+import org.example.data.repositories.InventoryRepository;
 import org.example.data.repositories.ItemInventoryCrossRefRepository;
 import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.UserRepository;
@@ -19,7 +20,7 @@ import java.util.List;
 public class UserService {
     private ItemService itemService = ItemService.getInstance();
     private UserRepository userRepository = RepositoryProvider.provideUserRepository();
-    private LocalInventoryRepository inventoryRepository = LocalInventoryRepository.getInstance();
+    private InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
     private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
 
     private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();

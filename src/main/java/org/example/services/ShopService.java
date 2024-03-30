@@ -106,6 +106,12 @@ public class ShopService {
         return new ShopInventory(shopInventory);
     }
 
+    public void addShop(ShopEntity entity) {
+        int inventoryId = inventoryRepository.add(new InventoryEntity(0));
+        entity.inventoryId = inventoryId;
+        shopRepository.addShop(entity);
+    }
+
     public Shop getShop() {
         int id = 1;
         ShopEntity shopEntity = shopRepository.getById(id);

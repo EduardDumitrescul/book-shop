@@ -1,46 +1,46 @@
 package org.example.data;
 
-import javafx.scene.paint.Color;
 import org.example.data.entities.*;
 import org.example.data.local.*;
+import org.example.data.mysql.*;
 import org.example.data.repositories.*;
 
 public class RepositoryProvider {
     private RepositoryProvider() {}
 
     public static Repository<BookEntity> provideBookRepository() {
-        return LocalBookRepository.getInstance();
+        return MySqlBookRepository.getInstance();
     }
 
     public static Repository<ColoringBookEntity> provideColoringBookRepository() {
-        return LocalColoringBookRepository.getInstance();
+        return MySqlColoringBookRepository.getInstance();
     }
 
     public static Repository<NotebookEntity> provideNotebookRepository() {
-        return LocalNotebookRepository.getInstance();
+        return MySqlNotebookRepository.getInstance();
     }
 
     public static Repository<CookbookEntity> provideCookbookRepository() {
-        return LocalCookbookRepository.getInstance();
+        return MySqlCookbookRepository.getInstance();
     }
 
     public static InventoryRepository provideInventoryRepository() {
-        return LocalInventoryRepository.getInstance();
+        return MySqlInventoryRepository.getInstance();
     }
 
     public static ItemInventoryCrossRefRepository provideItemInventoryCrossRefRepository() {
-        return LocalItemInventoryCrossRefRepository.getInstance();
+        return MySqlItemInventoryCrossRefRepository.getInstance();
     }
 
     public static ItemRepository provideItemRepository() {
-        return LocalItemRepository.getInstance();
+        return MySqlItemRepository.getInstance();
     }
 
     public static ShopRepository provideShopRepository() {
-        return LocalShopRepository.getInstance();
+        return MySqlShopRepository.getInstance();
     }
 
     public static UserRepository provideUserRepository() {
-        return LocalUserRepository.getInstance();
+        return MySqlUserRepository.getInstance();
     }
 }

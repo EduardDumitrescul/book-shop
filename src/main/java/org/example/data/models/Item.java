@@ -23,7 +23,7 @@ public class Item implements Cloneable {
     }
 
     public String description() {
-        return "sdfs";
+        return "base item";
     }
 
     @Override

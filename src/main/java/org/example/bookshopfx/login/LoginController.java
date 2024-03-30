@@ -28,6 +28,7 @@ public class LoginController {
             navController.showScreen("home", List.of());
         } catch (Exception e) {
             helperText.setText(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
@@ -41,6 +42,7 @@ public class LoginController {
             navController.showScreen("home", List.of());
         } catch (Exception e) {
             helperText.setText(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 }
