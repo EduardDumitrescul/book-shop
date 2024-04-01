@@ -10,6 +10,7 @@ module org.example.bookshopfx {
     requires eu.hansolo.tilesfx;
     requires java.sql;
     requires mysql.connector;
+    requires opencsv;
 
     opens org.example.bookshopfx to javafx.fxml;
     opens org.example.bookshopfx.login to javafx.fxml;

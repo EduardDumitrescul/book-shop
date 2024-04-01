@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import org.example.bookshopfx.navigation.NavigationController;
+import org.example.services.AuditService;
 import org.example.services.UserService;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class LoginController {
             userService.login(username, password);
             NavigationController navController = NavigationController.getInstance();
             navController.showScreen("home", List.of());
+            AuditService.log(AuditService.Action.LOGIN);
         } catch (Exception e) {
             helperText.setText(e.getMessage());
             throw new RuntimeException(e);
@@ -40,6 +42,7 @@ public class LoginController {
             userService.register(username, password);
             NavigationController navController = NavigationController.getInstance();
             navController.showScreen("home", List.of());
+            AuditService.log(AuditService.Action.REGISTER);
         } catch (Exception e) {
             helperText.setText(e.getMessage());
             throw new RuntimeException(e);

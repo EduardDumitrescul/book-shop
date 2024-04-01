@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.example.data.models.InventoryItem;
+import org.example.services.AuditService;
 import org.example.services.ShopService;
 import org.example.services.UserService;
 
@@ -32,6 +33,7 @@ public class ShopItemController {
         int userId = userService.getCurrentUser().getId();
         int itemId = shopItemModel.getInventoryItem().getItem().getId();
         shopService.buyItem(userId, itemId);
+        AuditService.log(AuditService.Action.BUY_ITEM);
         try {
             updateShopCallback.call();
         } catch (Exception ignored) {
@@ -43,6 +45,7 @@ public class ShopItemController {
         int itemId = shopItemModel.getInventoryItem().getItem().getId();
         shopService.addItemToShopInventory(itemId);
         updateShopCallback.call();
+        AuditService.log(AuditService.Action.RESTOCK_SHOP);
     }
 
     @FXML

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.Seeder;
+import org.example.services.AuditService;
 
 public class HelloApplication extends Application {
     @Override
@@ -13,6 +14,13 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
+        AuditService.init();
         launch();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        AuditService.save();
     }
 }

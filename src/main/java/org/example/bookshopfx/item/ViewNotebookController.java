@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.Notebook;
+import org.example.services.AuditService;
 import org.example.services.ItemService;
 
 import java.util.List;
@@ -37,6 +38,8 @@ public class ViewNotebookController {
             notebook.write();
             itemService.updateItem(notebook);
             model.setNotebook((Notebook) itemService.getItem(notebook.getId()));
+
+            AuditService.log(AuditService.Action.USE_OWNED_ITEM);
         } catch (Exception ignored) {
 
         }
@@ -51,5 +54,7 @@ public class ViewNotebookController {
         int itemId = model.getNotebook().getId();
         itemService.throwAwayItem(itemId);
         navigateBack();
+
+        AuditService.log(AuditService.Action.THROW_AWAY_ITEM);
     }
 }

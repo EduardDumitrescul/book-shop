@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.ColoringBook;
 import org.example.data.models.Item;
+import org.example.services.AuditService;
 import org.example.services.ItemService;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class ViewColoringBook {
             coloringBook.draw();
             itemService.updateItem(coloringBook);
             model.setColoringBook((ColoringBook) itemService.getItem(coloringBook.getId()));
+            AuditService.log(AuditService.Action.USE_OWNED_ITEM);
         } catch (Exception ignored) {
         }
     }
@@ -51,5 +53,7 @@ public class ViewColoringBook {
         int itemId = model.getColoringBook().getId();
         itemService.throwAwayItem(itemId);
         navigateBack();
+
+        AuditService.log(AuditService.Action.THROW_AWAY_ITEM);
     }
 }

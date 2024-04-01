@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.example.bookshopfx.navigation.NavigationController;
 import org.example.data.models.*;
+import org.example.services.AuditService;
 import org.example.services.ItemService;
 
 import java.util.List;
@@ -44,5 +45,6 @@ public class ItemCellController {
         else if(item instanceof Cookbook) {
             NavigationController.getInstance().showScreen("view-cookbook", args);
         }
+        AuditService.log(AuditService.Action.VIEW_ITEM_DETAILS);
     }
 }
