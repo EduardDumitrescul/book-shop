@@ -7,7 +7,7 @@ import org.example.data.repositories.Repository;
 import java.sql.*;
 
 public class MySqlBookRepository implements Repository<BookEntity> {
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
     private final String INSERT = "insert into books(id, title, author, numberOfPages, numberOfPagesRead) " +
             "values(?, ?, ?, ?, ?)";
     @Override

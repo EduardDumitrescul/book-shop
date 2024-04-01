@@ -7,7 +7,7 @@ import org.example.data.repositories.Repository;
 import java.sql.*;
 
 public class MySqlNotebookRepository implements Repository<NotebookEntity> {
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
     private final String INSERT = "insert into notebooks(id, type, numberOfPages, numberOfPagesWritten) " +
             "values(?, ?, ?, ?)";
     @Override

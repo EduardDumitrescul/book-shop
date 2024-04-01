@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocalInventoryRepository implements InventoryRepository {
-    private List<InventoryEntity> inventories = new ArrayList<>();
+    private final List<InventoryEntity> inventories = new ArrayList<>();
 
     public int add(InventoryEntity entity) {
         generateId(entity);

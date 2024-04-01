@@ -7,10 +7,10 @@ import org.example.data.models.Book;
 public class ViewBookModel {
     private Book book;
 
-    private StringProperty title = new SimpleStringProperty();
-    private StringProperty author = new SimpleStringProperty();
-    private StringProperty totalPages = new SimpleStringProperty();
-    private StringProperty currentPage = new SimpleStringProperty();
+    private final StringProperty title = new SimpleStringProperty();
+    private final StringProperty author = new SimpleStringProperty();
+    private final StringProperty totalPages = new SimpleStringProperty();
+    private final StringProperty currentPage = new SimpleStringProperty();
 
     public void setBook(Book book) {
         this.book = book;

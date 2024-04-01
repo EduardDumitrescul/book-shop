@@ -11,8 +11,8 @@ import org.example.services.ItemService;
 import java.util.List;
 
 public class ViewBookController {
-    private ViewBookModel model;
-    private ItemService itemService = ItemService.getInstance();
+    private final ViewBookModel model;
+    private final ItemService itemService = ItemService.getInstance();
 
     @FXML
     private Label title;

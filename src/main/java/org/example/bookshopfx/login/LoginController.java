@@ -12,7 +12,7 @@ import java.util.List;
 public class LoginController {
 
     public Text helperText;
-    private UserService userService = UserService.getInstance();
+    private final UserService userService = UserService.getInstance();
 
     @FXML
     private TextField usernameField;

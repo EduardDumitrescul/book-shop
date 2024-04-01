@@ -1,8 +1,8 @@
 package org.example.data.models;
 
 public class ColoringBook extends Item implements Cloneable {
-    private String theme;
-    private int numberOfDrawings;
+    private final String theme;
+    private final int numberOfDrawings;
     private int numberOfDrawingsCompleted;
 
 

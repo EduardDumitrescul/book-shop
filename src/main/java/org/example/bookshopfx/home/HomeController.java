@@ -22,9 +22,9 @@ public class HomeController {
     @FXML
     public Text usernameText;
 
-    private UserService userService = UserService.getInstance();
+    private final UserService userService = UserService.getInstance();
 
-    private HomeModel homeModel;
+    private final HomeModel homeModel;
 
 
 

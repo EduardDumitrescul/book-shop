@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocalItemRepository implements ItemRepository {
-    private List<ItemEntity> items = new ArrayList<>();
+    private final List<ItemEntity> items = new ArrayList<>();
 
 
     public void update(ItemEntity item) {

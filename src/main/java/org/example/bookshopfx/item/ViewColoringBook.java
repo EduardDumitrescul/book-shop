@@ -12,8 +12,8 @@ import org.example.services.ItemService;
 import java.util.List;
 
 public class ViewColoringBook {
-    private ItemService itemService = ItemService.getInstance();
-    private ViewColoringBookModel model = new ViewColoringBookModel();
+    private final ItemService itemService = ItemService.getInstance();
+    private final ViewColoringBookModel model = new ViewColoringBookModel();
     public Label theme;
     public Label totalDrawings;
     public Label drawingsCompleted;

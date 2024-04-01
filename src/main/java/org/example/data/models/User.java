@@ -2,10 +2,10 @@ package org.example.data.models;
 
 public class User implements Cloneable {
     private int id;
-    private String username;
-    private String password;
+    private final String username;
+    private final String password;
 
-    private UserInventory inventory;
+    private final UserInventory inventory;
 
     public User(int id, String username, String password, UserInventory inventory) {
         this.id = id;

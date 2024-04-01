@@ -18,12 +18,12 @@ import org.example.data.repositories.UserRepository;
 import java.util.List;
 
 public class UserService {
-    private ItemService itemService = ItemService.getInstance();
-    private UserRepository userRepository = RepositoryProvider.provideUserRepository();
-    private InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
+    private final ItemService itemService = ItemService.getInstance();
+    private final UserRepository userRepository = RepositoryProvider.provideUserRepository();
+    private final InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
+    private final ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
 
-    private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
+    private final ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
 
     private User currentUser = null;
     private UserService() {}

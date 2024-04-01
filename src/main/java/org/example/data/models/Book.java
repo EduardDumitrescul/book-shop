@@ -1,9 +1,9 @@
 package org.example.data.models;
 
 public class Book extends Item implements Cloneable {
-    private String title;
-    private String author;
-    private int numberOfPages;
+    private final String title;
+    private final String author;
+    private final int numberOfPages;
     private int numberOfPagesRead;
 
 

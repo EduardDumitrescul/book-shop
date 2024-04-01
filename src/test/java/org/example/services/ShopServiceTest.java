@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 class ShopServiceTest {
-    private ShopService shopService = ShopService.getInstance();
+    private final ShopService shopService = ShopService.getInstance();
 
     @BeforeEach
     void setUp() {

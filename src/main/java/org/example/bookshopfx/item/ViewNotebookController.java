@@ -11,8 +11,8 @@ import org.example.services.ItemService;
 import java.util.List;
 
 public class ViewNotebookController {
-    private ViewNotebookModel model = new ViewNotebookModel();
-    private ItemService itemService = ItemService.getInstance();
+    private final ViewNotebookModel model = new ViewNotebookModel();
+    private final ItemService itemService = ItemService.getInstance();
     public Label type;
     public Label pages;
     public Label pagesWritten;

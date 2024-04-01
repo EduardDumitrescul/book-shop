@@ -39,7 +39,8 @@ public class MySqlInventoryRepository implements InventoryRepository {
         }
     }
 
-    private MySqlInventoryRepository() {};
+    private MySqlInventoryRepository() {}
+
     private static MySqlInventoryRepository instance = null;
 
     public static MySqlInventoryRepository getInstance() {

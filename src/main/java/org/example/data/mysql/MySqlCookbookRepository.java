@@ -7,7 +7,7 @@ import org.example.data.repositories.Repository;
 import java.sql.*;
 
 public class MySqlCookbookRepository implements Repository<CookbookEntity> {
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
     private final String INSERT = "insert into cookbooks(id, skillLevel, numberOfRecipes, numberOfRecipesTried) " +
             "values(?, ?, ?, ?)";
     @Override

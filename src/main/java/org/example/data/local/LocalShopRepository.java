@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocalShopRepository implements ShopRepository {
-    private List<ShopEntity> shops = new ArrayList<>();
+    private final List<ShopEntity> shops = new ArrayList<>();
 
 
     public ShopEntity getById(int id) {

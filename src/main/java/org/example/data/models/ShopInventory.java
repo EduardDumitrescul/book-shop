@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShopInventory implements Cloneable {
-    private int id;
-    private List<InventoryItem> items;
+    private final int id;
+    private final List<InventoryItem> items;
 
     public ShopInventory(int id, List<InventoryItem>items) {
         this.items = cloneItemList(items);

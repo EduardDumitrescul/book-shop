@@ -6,9 +6,9 @@ import org.example.data.models.Notebook;
 
 public class ViewNotebookModel {
     private Notebook notebook;
-    private StringProperty type = new SimpleStringProperty();
-    private StringProperty pages = new SimpleStringProperty();
-    private StringProperty pagesWritten = new SimpleStringProperty();
+    private final StringProperty type = new SimpleStringProperty();
+    private final StringProperty pages = new SimpleStringProperty();
+    private final StringProperty pagesWritten = new SimpleStringProperty();
 
     public void setNotebook(Notebook notebook) {
         this.notebook = notebook;

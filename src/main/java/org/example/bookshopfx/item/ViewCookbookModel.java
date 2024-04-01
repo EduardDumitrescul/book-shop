@@ -6,9 +6,9 @@ import org.example.data.models.Cookbook;
 
 public class ViewCookbookModel {
     private Cookbook cookbook;
-    private StringProperty skill = new SimpleStringProperty();
-    private StringProperty recipes = new SimpleStringProperty();
-    private StringProperty recipesTried = new SimpleStringProperty();
+    private final StringProperty skill = new SimpleStringProperty();
+    private final StringProperty recipes = new SimpleStringProperty();
+    private final StringProperty recipesTried = new SimpleStringProperty();
 
     public void setCookbook(Cookbook cookbook) {
         this.cookbook = cookbook;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class LocalRepository<T extends BaseEntity> implements Repository<T> {
-    private List<T> entities = new ArrayList<>();
+    private final List<T> entities = new ArrayList<>();
 
     public int add(T entity) {
 //        generateId(entity);

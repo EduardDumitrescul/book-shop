@@ -11,9 +11,9 @@ import org.example.services.UserService;
 
 public class ShopItemController {
     public Button restockButton;
-    private ShopItemModel shopItemModel = new ShopItemModel();
-    private ShopService shopService = ShopService.getInstance();
-    private UserService userService = UserService.getInstance();
+    private final ShopItemModel shopItemModel = new ShopItemModel();
+    private final ShopService shopService = ShopService.getInstance();
+    private final UserService userService = UserService.getInstance();
 
     private UpdateShopCallback updateShopCallback = null;
     @FXML

@@ -13,8 +13,8 @@ import java.util.List;
 public class ItemCellController {
 
     public Label description;
-    private ItemCellModel model = new ItemCellModel();
-    private ItemService itemService = ItemService.getInstance();
+    private final ItemCellModel model = new ItemCellModel();
+    private final ItemService itemService = ItemService.getInstance();
 
 //    public void setUpdateInventoryCallback(UpdateInventoryCallback updateInventoryCallback) {
 //        this.updateInventoryCallback = updateInventoryCallback;

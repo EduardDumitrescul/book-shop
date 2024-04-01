@@ -1,8 +1,8 @@
 package org.example.data.models;
 
 public class Item implements Cloneable {
-    private int id;
-    private int price;
+    private final int id;
+    private final int price;
 
     public Item(int id, int price) {
         this.id = id;

@@ -6,9 +6,9 @@ import org.example.utils.ObjectCloningUtil;
 import java.util.List;
 
 public class UserInventory implements Cloneable {
-    private int id;
+    private final int id;
 
-    private List<Item> items;
+    private final List<Item> items;
 
     public UserInventory(int id, List<Item> items) {
         this.id = id;

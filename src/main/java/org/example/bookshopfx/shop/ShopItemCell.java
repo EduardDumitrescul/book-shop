@@ -9,10 +9,10 @@ import org.example.data.models.InventoryItem;
 import java.io.IOException;
 
 public class ShopItemCell extends ListCell<InventoryItem> {
-    private HBox root;
+    private final HBox root;
 
 
-    private ShopItemController controller;
+    private final ShopItemController controller;
 
 
     public ShopItemCell(UpdateShopCallback updateShopCallback) {

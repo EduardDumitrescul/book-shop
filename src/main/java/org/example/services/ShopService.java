@@ -16,12 +16,12 @@ import java.util.List;
 
 public class ShopService {
 
-    private ItemService itemService = ItemService.getInstance();
-    private ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
-    private InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
-    private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
-    private UserRepository userRepository = RepositoryProvider.provideUserRepository();
+    private final ItemService itemService = ItemService.getInstance();
+    private final ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
+    private final InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
+    private final ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
+    private final ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
+    private final UserRepository userRepository = RepositoryProvider.provideUserRepository();
 
     public List<InventoryItem> getItemsByInventoryId(int inventoryId) {
         try {
@@ -158,10 +158,7 @@ public class ShopService {
 
     public boolean isOwner(int userId) {
         Shop shop = getShop();
-        if(shop.getOwnerId() == userId) {
-            return true;
-        }
-        return false;
+        return shop.getOwnerId() == userId;
     }
 
 

@@ -7,7 +7,7 @@ import org.example.data.models.Shop;
 
 public class ShopModel {
     private Shop shop;
-    private ObservableList<InventoryItem> itemList = FXCollections.observableArrayList();
+    private final ObservableList<InventoryItem> itemList = FXCollections.observableArrayList();
 
     public void setShop(Shop shop) {
         this.shop = shop;

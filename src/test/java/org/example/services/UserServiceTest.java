@@ -10,11 +10,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
-    private LocalUserRepository userRepository = LocalUserRepository.getInstance();
-    private UserService userService = UserService.getInstance();
+    private final LocalUserRepository userRepository = LocalUserRepository.getInstance();
+    private final UserService userService = UserService.getInstance();
 
-    private String mockUsername = "account service test username";
-    private String mockPassword = "account service test password";
+    private final String mockUsername = "account service test username";
+    private final String mockPassword = "account service test password";
 
     @BeforeEach
     public void setUp() {

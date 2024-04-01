@@ -12,25 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Seeder {
-    private static UserService userService = UserService.getInstance();
-    private static ShopService shopService = ShopService.getInstance();
-    private static ItemService itemService = ItemService.getInstance();
-    private static ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
-    private static Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
-    private static Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
-    private static Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
+    private static final UserService userService = UserService.getInstance();
+    private static final ShopService shopService = ShopService.getInstance();
+    private static final ItemService itemService = ItemService.getInstance();
+    private static final ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
+    private static final Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
+    private static final Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
+    private static final Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
 
-    private static Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
-    private static ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
-    private static InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
-    private static ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
-    private static UserRepository userRepository = RepositoryProvider.provideUserRepository();
+    private static final Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
+    private static final ShopRepository shopRepository = RepositoryProvider.provideShopRepository();
+    private static final InventoryRepository inventoryRepository = RepositoryProvider.provideInventoryRepository();
+    private static final ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
+    private static final UserRepository userRepository = RepositoryProvider.provideUserRepository();
 
-    private static List<UserEntity> users = new ArrayList<>(List.of(
+    private static final List<UserEntity> users = new ArrayList<>(List.of(
             new UserEntity(0, "owner", "owner", 2),
             new UserEntity(0, "default", "default", 3)
     ));
-    private static List<ItemEntity> items = new ArrayList<>(List.of(
+    private static final List<ItemEntity> items = new ArrayList<>(List.of(
             new ItemEntity(1, 10),
             new ItemEntity(2, 20),
             new ItemEntity(3, 30),
@@ -38,16 +38,16 @@ public class Seeder {
             new ItemEntity(5, 50)
     ));
 
-    private static List<BookEntity> books = new ArrayList<>(List.of(
+    private static final List<BookEntity> books = new ArrayList<>(List.of(
             new BookEntity(1, "title 1", "author 1", 100, 0)
     ));
-    private static List<ColoringBookEntity> drawingBooks = new ArrayList<>(List.of(
+    private static final List<ColoringBookEntity> drawingBooks = new ArrayList<>(List.of(
             new ColoringBookEntity(2, "title 1", 100, 0)
     ));
-    private static List<NotebookEntity> notebooks = new ArrayList<>(List.of(
+    private static final List<NotebookEntity> notebooks = new ArrayList<>(List.of(
             new NotebookEntity(3, "lined", 100, 0)
     ));
-    private static List<CookbookEntity> cookbooks = new ArrayList<>(List.of(
+    private static final List<CookbookEntity> cookbooks = new ArrayList<>(List.of(
             new CookbookEntity(4, "beginner", 100, 0)
     ));
 
@@ -55,13 +55,13 @@ public class Seeder {
             new ShopEntity(1, 9, 18, "Bucharest", 0, 0, 1, 1)
     ));
 
-    private static List<InventoryEntity> inventoryEntities = new ArrayList<>(List.of(
+    private static final List<InventoryEntity> inventoryEntities = new ArrayList<>(List.of(
             new InventoryEntity(1),
             new InventoryEntity(2),
             new InventoryEntity(3)
     ));
 
-    private static List<InventoryItemCrossRef> inventoryItemCrossRefs = new ArrayList<>(List.of(
+    private static final List<InventoryItemCrossRef> inventoryItemCrossRefs = new ArrayList<>(List.of(
             new InventoryItemCrossRef(1, 1, 2),
             new InventoryItemCrossRef(1, 2, 3),
             new InventoryItemCrossRef(1, 3, 4),

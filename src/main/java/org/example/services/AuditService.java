@@ -74,7 +74,7 @@ public class AuditService {
          ;
 
 
-        private String action;
+        private final String action;
         Action(String action) {
             this.action = action;
         }

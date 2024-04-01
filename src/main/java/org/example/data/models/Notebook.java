@@ -2,8 +2,8 @@ package org.example.data.models;
 
 
 public class Notebook extends Item {
-    private String type;
-    private int numberOfPages;
+    private final String type;
+    private final int numberOfPages;
     private int numberOfPagesWritten;
 
     public Notebook(int id, int price, String type, int numberOfPages, int numberOfPagesWritten) {

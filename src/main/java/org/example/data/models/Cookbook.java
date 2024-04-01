@@ -1,8 +1,8 @@
 package org.example.data.models;
 
 public class Cookbook extends Item implements Cloneable {
-    private String skillLevel;
-    private int numberOfRecipes;
+    private final String skillLevel;
+    private final int numberOfRecipes;
     private int numberOfRecipesTried;
 
 

@@ -8,7 +8,7 @@ import org.example.data.models.UserInventory;
 public class InventoryModel {
     private UserInventory inventory;
 
-    private ObservableList<Integer> itemIds = FXCollections.observableArrayList();
+    private final ObservableList<Integer> itemIds = FXCollections.observableArrayList();
 
     public void setInventory(UserInventory inventory) {
         this.inventory = inventory;

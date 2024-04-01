@@ -9,8 +9,8 @@ import org.example.services.UserService;
 public class InventoryController {
     @FXML
     private ListView itemListView;
-    private InventoryModel inventoryModel = new InventoryModel();
-    private UserService userService = UserService.getInstance();
+    private final InventoryModel inventoryModel = new InventoryModel();
+    private final UserService userService = UserService.getInstance();
 
 
     public void back(ActionEvent actionEvent) {

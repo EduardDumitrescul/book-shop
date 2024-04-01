@@ -8,9 +8,9 @@ import org.example.bookshopfx.HelloApplication;
 import java.io.IOException;
 
 public class ItemCell extends ListCell<Integer> {
-    private HBox root;
+    private final HBox root;
 
-    private ItemCellController controller;
+    private final ItemCellController controller;
 
 
     public ItemCell() {

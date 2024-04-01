@@ -9,7 +9,7 @@ import java.util.TreeMap;
 public class LocalUserRepository implements UserRepository {
     private static LocalUserRepository instance = null;
     private static int idCount = 0;
-    private SortedMap<String, UserEntity> users = new TreeMap<>();
+    private final SortedMap<String, UserEntity> users = new TreeMap<>();
 
     private LocalUserRepository() {}
 

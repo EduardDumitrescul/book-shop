@@ -10,8 +10,8 @@ import org.example.services.ShopService;
 import java.util.List;
 
 public class ShopController implements UpdateShopCallback {
-    private ShopModel shopModel = new ShopModel();
-    private ShopService shopService = ShopService.getInstance();
+    private final ShopModel shopModel = new ShopModel();
+    private final ShopService shopService = ShopService.getInstance();
     @FXML
     public ListView<InventoryItem> itemListView;
 

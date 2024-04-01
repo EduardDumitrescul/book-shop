@@ -11,8 +11,8 @@ import org.example.services.ItemService;
 import java.util.List;
 
 public class ViewCookbookController {
-    private ItemService itemService = ItemService.getInstance();
-    private ViewCookbookModel model = new ViewCookbookModel();
+    private final ItemService itemService = ItemService.getInstance();
+    private final ViewCookbookModel model = new ViewCookbookModel();
     public Label skill;
     public Label recipes;
     public Label recipesTried;

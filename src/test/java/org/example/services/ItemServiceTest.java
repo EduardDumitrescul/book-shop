@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ItemServiceTest {
-    private ItemService itemService = ItemService.getInstance();
+    private final ItemService itemService = ItemService.getInstance();
 
     @BeforeEach
     public void setUp() {

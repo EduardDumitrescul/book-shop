@@ -1,16 +1,16 @@
 package org.example.data.models;
 
 public class Shop implements Cloneable {
-    private int id;
-    private int openingHour;
-    private int closingHour;
-    private String location;
-    private int itemsSold;
-    private int dollarsReceived;
+    private final int id;
+    private final int openingHour;
+    private final int closingHour;
+    private final String location;
+    private final int itemsSold;
+    private final int dollarsReceived;
 
-    private int ownerId;
+    private final int ownerId;
 
-    private ShopInventory inventory;
+    private final ShopInventory inventory;
 
     public Shop(
             int id,

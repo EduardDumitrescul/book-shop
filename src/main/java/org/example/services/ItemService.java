@@ -10,13 +10,13 @@ import org.example.data.repositories.ItemRepository;
 import org.example.data.repositories.Repository;
 
 public class ItemService {
-    private ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
-    private Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
-    private Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
-    private Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
-    private Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
+    private final ItemRepository itemRepository = RepositoryProvider.provideItemRepository();
+    private final Repository<BookEntity> bookRepository = RepositoryProvider.provideBookRepository();
+    private final Repository<ColoringBookEntity> coloringBookRepository = RepositoryProvider.provideColoringBookRepository();
+    private final Repository<NotebookEntity> notebookRepository = RepositoryProvider.provideNotebookRepository();
+    private final Repository<CookbookEntity> cookbookRepository = RepositoryProvider.provideCookbookRepository();
 
-    private ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
+    private final ItemInventoryCrossRefRepository itemInventoryCrossRefRepository = RepositoryProvider.provideItemInventoryCrossRefRepository();
     public Item getItem(int id) {
         ItemEntity itemEntity = itemRepository.getById(id);
         Item item;

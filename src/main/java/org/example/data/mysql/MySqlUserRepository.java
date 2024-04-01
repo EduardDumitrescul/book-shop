@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class MySqlUserRepository implements UserRepository {
 
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
 
     private final String SELECT = "select * from users " +
             "where id = ?";

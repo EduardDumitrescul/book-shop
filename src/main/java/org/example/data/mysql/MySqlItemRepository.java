@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MySqlItemRepository implements ItemRepository {
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
 
     private final String UPDATE = "update items " +
             "set price = ? " +

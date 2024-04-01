@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlItemInventoryCrossRefRepository implements ItemInventoryCrossRefRepository {
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
     private final String SELECT = "select * from inventoryItemCrossRef " +
             "where itemId=? and inventoryId=?";
 

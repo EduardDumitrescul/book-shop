@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class MySqlShopRepository implements ShopRepository {
 
-    private Connection connection = MySqlConnection.getConnection();
+    private final Connection connection = MySqlConnection.getConnection();
     private final String SELECT = "select * from shops " +
             "where id = ?";
     @Override

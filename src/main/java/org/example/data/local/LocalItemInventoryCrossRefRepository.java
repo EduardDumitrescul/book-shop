@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LocalItemInventoryCrossRefRepository implements ItemInventoryCrossRefRepository {
-    private List<InventoryItemCrossRef> crossRefs = new ArrayList<>();
+    private final List<InventoryItemCrossRef> crossRefs = new ArrayList<>();
 
     public InventoryItemCrossRef getInventoryItem(int inventoryId, int itemId) {
         for(InventoryItemCrossRef entity: crossRefs) {

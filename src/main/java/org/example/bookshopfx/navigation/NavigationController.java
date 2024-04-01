@@ -12,10 +12,10 @@ import java.util.Objects;
 import java.util.Stack;
 
 public class NavigationController {
-    private Stage stage;
+    private final Stage stage;
 
-    private Stack<Screen> navStack = new Stack<>();
-    private List<Screen> screens = new ArrayList<>(List.of(
+    private final Stack<Screen> navStack = new Stack<>();
+    private final List<Screen> screens = new ArrayList<>(List.of(
             new Screen("login", "login/login.fxml", List.of()),
             new Screen("home", "home/home.fxml", List.of()),
             new Screen("shop", "shop/shop.fxml", List.of()),

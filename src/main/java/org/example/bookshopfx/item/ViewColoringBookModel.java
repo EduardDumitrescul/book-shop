@@ -7,9 +7,9 @@ import org.example.data.models.ColoringBook;
 public class ViewColoringBookModel {
 
     private ColoringBook coloringBook;
-    private StringProperty theme = new SimpleStringProperty();
-    private StringProperty totalDrawings = new SimpleStringProperty();
-    private StringProperty drawingsCompleted = new SimpleStringProperty();
+    private final StringProperty theme = new SimpleStringProperty();
+    private final StringProperty totalDrawings = new SimpleStringProperty();
+    private final StringProperty drawingsCompleted = new SimpleStringProperty();
 
     public void setColoringBook(ColoringBook coloringBook) {
         this.coloringBook = coloringBook;

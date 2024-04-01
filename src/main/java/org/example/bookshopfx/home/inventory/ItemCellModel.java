@@ -7,7 +7,7 @@ import org.example.data.models.Item;
 public class ItemCellModel {
     private Item item;
 
-    private StringProperty description = new SimpleStringProperty();
+    private final StringProperty description = new SimpleStringProperty();
 
     public void setItem(Item item) {
         this.item = item;

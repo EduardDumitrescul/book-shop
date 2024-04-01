@@ -1,8 +1,8 @@
 package org.example.data.models;
 
 public class InventoryItem implements Cloneable {
-    private Item item;
-    private int count;
+    private final Item item;
+    private final int count;
 
     public InventoryItem(Item item, int count) {
         this.item = item.clone();

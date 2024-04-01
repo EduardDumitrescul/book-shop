@@ -18,10 +18,10 @@ import java.util.Scanner;
 
 
 public class MysqlDatabaseUtil {
-    private static Connection connection = MySqlConnection.getConnection();
-    private static ItemService itemService = ItemService.getInstance();
-    private static UserService userService = UserService.getInstance();
-    private static ShopService shopService = ShopService.getInstance();
+    private static final Connection connection = MySqlConnection.getConnection();
+    private static final ItemService itemService = ItemService.getInstance();
+    private static final UserService userService = UserService.getInstance();
+    private static final ShopService shopService = ShopService.getInstance();
     public static void main(String[] args) throws Exception {
         reset();
     }
