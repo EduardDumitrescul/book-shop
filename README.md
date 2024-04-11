@@ -5,6 +5,11 @@ It is an app that :
 - enables the store owner update and keep track of its stock
 
 
+## Info
+- owner login:
+     - username = owner
+     - password = 123456
+
 ## Requirements
 
 ### Stage I(deadline: 8th of April 2024)
