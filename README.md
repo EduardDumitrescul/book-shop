@@ -6,6 +6,7 @@ It is an app that :
 
 
 ## Info
+- requires a mysql database on localhost
 - owner login:
      - username = owner
      - password = 123456
