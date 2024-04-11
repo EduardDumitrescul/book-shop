@@ -1,4 +1,4 @@
-module org.example.bookshopfx {
+module org.example.bookshop {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,7 +9,7 @@ module org.example.bookshopfx {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
-    requires mysql.connector;
+    requires mysql.connector.j;
     requires opencsv;
 
     opens org.example.bookshopfx to javafx.fxml;
