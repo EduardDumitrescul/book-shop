@@ -21,6 +21,5 @@ public class HelloApplication extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        AuditService.save();
     }
 }

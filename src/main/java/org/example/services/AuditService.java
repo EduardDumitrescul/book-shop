@@ -5,40 +5,54 @@ import com.opencsv.CSVWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AuditService {
     private static final Map<String, Integer> usage = new HashMap<>();
-
+    private static CSVWriter writer;
     public static void init() {
         CSVReader csvReader = null;
         try {
             csvReader = new CSVReader(new FileReader("audit.csv"));
-            String[] nextLine;
-            while ((nextLine = csvReader.readNext()) != null)
-            {
-                usage.put(nextLine[0], Integer.valueOf(nextLine[1].strip()));
-            }
+            writer = new CSVWriter(new FileWriter("./audit.csv"));
+//            String[] nextLine;
+//            while ((nextLine = csvReader.readNext()) != null)
+//            {
+//                usage.put(nextLine[0], Integer.valueOf(nextLine[1].strip()));
+//            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static void save() {
-        try (CSVWriter writer = new CSVWriter(new FileWriter("./audit.csv"))) {
-            for(Map.Entry<String, Integer> entry: usage.entrySet()) {
-                String[] line = {entry.getKey(), String.valueOf(entry.getValue())};
-                writer.writeNext(line);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public static void save() {
+//        try (CSVWriter writer = new CSVWriter(new FileWriter("./audit.csv"))) {
+//            for(Map.Entry<String, Integer> entry: usage.entrySet()) {
+//                String[] line = {entry.getKey(), String.valueOf(entry.getValue())};
+//                writer.writeNext(line);
+//            }
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+//    public static void log(Action action) {
+//        int count = usage.get(action.getAction());
+//        usage.put(action.getAction(), count + 1);
+//    }
 
     public static void log(Action action) {
-        int count = usage.get(action.getAction());
-        usage.put(action.getAction(), count + 1);
+        String[] line = {LocalDateTime.now() + ": " + action.action};
+        System.out.println(line[0]);
+        writer.writeNext(line);
+
+        try {
+            writer.flush();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
